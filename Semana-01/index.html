@@ -102,6 +102,39 @@
                 </li>
             </ul>
         </section>
+        <section>
+            <form action="POST">
+                <label for="form-landing-name">Name</label>
+                <input type="text" id="form-landing-name">
+                <label for="form-landing-email">Email</label>
+                <input type="email" id="form-landing-email">
+                <label for="form-landing-select">Please choose:</label>
+                <select name="form-landing-select" id="form-landing-select">
+                    <option value="Options">Options</option>
+                    <option value="System">System</option>
+                    <option value="Business">Business</option>
+                    <option value="Human Resources">Human Resources</option>
+                </select>
+                <input type="radio" id="form-landing-low-radio" name="form-radio-options">
+                <label for="form-landing-low-radio">Low</label>
+                <input type="radio" id="form-landing-normal-radio" name="form-radio-options">
+                <label for="form-landing-normal-radio">Normal</label>
+                <input type="radio" id="form-landing-high-radio" name="form-radio-options">
+                <label for="form-landing-high-radio">High</label>
+                <input type="checkbox" id="form-landing-checkbox-email">
+                <label for="form-landing-checkbox-email">Email me a copy</label>
+                <input type="checkbox" id="form-landing-checkbox-human">
+                <label for="form-landing-checkbox-human">I am a human</label>
+                <label for="form-landing-message">Message</label>
+                <textarea
+                name="form-landing-textarea"
+                id="form-landing-textarea"
+                cols="80"
+                rows="7"
+                placeholder="Enter your message"></textarea>
+                <input type="submit" value="Send">
+            </form>
+        </section>
     </main>
     <aside>
 
