@@ -4,7 +4,7 @@
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', normal;
 }
 
 a {
@@ -19,14 +19,12 @@ header {
     position: relative;
     width: 100%;
     height: 120px;
+    padding: 36px 32px;
     background-color: #41426F;
 }
 
 header h1 {
     display: inline-block;
-    position: absolute;
-    top: 36px;
-    left: 32px;
     font-weight: 700;
     font-size: 40px;
     line-height: 47px;
@@ -35,13 +33,12 @@ header h1 {
 /*     Header Styles End            */
 aside {
     display: inline-block;
+    /* TODO: Arreglar posicion sticky con propiedad float activada (main: floar: right) */
     position: sticky;
     top: 0px;
-    width: 288px;
+    width: 19%;
     height: 959px;
-    padding-left: 17px;
-    padding-right: 16px;
-
+    padding: 0 16px;
     color: #FFFFFF;
     background-color: #41426F;
 }
@@ -62,7 +59,7 @@ aside .div-input-search {
     display: block;
     align-content: center;
     align-items: center;
-    width: 255px;
+    width: 100%;
     height: 38px;
     color: rgba(255, 255, 255, .5);
     border: 1px solid #FFFFFF;
@@ -98,7 +95,7 @@ aside .btn-aside {
     display: block;
     align-content: center;
     align-items: center;
-    width: 255px;
+    width: 100%;
     height: 50px;
     margin: 12.5px 0;
     background-color: #FFFFFF;
@@ -119,8 +116,6 @@ aside .btn-aside:hover {
 
 aside h5 {
     display: inline-block;
-    /* width: 82px;
-    height: 17px; */
     padding-bottom: 4px;
     margin-top: 96px;
     border-bottom: 3px solid #AACE9B;
@@ -131,7 +126,7 @@ aside h5 {
 }
 
 aside>p {
-    width: 255px;
+    width: 100%;
     margin-top: 29px;
     margin-bottom: 13px;
     font-family: 'Roboto';
@@ -144,7 +139,7 @@ aside>p {
 aside .aside-contact-div {
     display: block;
     position: relative;
-    width: 250px;
+    width: 100%;
     margin-top: 10px;
     padding: 3px 5px;
     padding-bottom: 11px;
@@ -154,17 +149,56 @@ aside .aside-contact-div {
     font-weight: 600;
     line-height: 16px;
 }
-aside .aside-contact-div.contact-location{
+
+aside .aside-contact-div.contact-location {
     border-bottom: none;
 }
 
 /* Main styles */
 main {
-    display: inline-block;
+    display: block;
     width: calc(100% - 288px);
     /* margin-left: 288px; */
     float: right;
     padding: 0px 52px 0px 53px;
+}
+
+main section{
+    padding: 50px 0px;
+    /* margin: 53px; */
+    /* border-top: 3px solid #373867; */
+    border-bottom: 3px solid #373867;
+}
+main section:first-child{
+    margin-top: 53px;
+    border-top: 3px solid #373867;
+}
+main section:last-child{
+    border-bottom: none;
+}
+
+main section.hero {
+}
+
+main section.hero .left-conteiner,
+main section.hero .right-conteiner {
+    display: inline-block;
+}
+
+main section.hero .left-conteiner {
+    width: 411px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25px;
+    color: #41426F;
+}
+
+main section.hero .right-conteiner {
+    width: 663px;
+    margin-left: 27px;
+    border-radius: 5px;
 }
 
 footer {

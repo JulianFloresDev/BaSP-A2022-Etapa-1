@@ -7,7 +7,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100&display=swap" rel="stylesheet">
     <!-- Google Icons -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -38,18 +38,22 @@
                 </span>
                 <input id="input-search" type="text" placeholder="Search">
             </div>
-            <button id="aside-btn-home" class="btn-aside">
-                <span class="material-symbols-rounded">home</span>
-                Home
-            </button>
-            <button id="aside-btn-login" class="btn-aside">
-                <span class="material-symbols-outlined">login</span>
-                LogIn
-            </button>
-            <button id="aside-btn-singup" class="btn-aside">
-                <span class="material-symbols-outlined">man</span>
-                SingUp
-            </button>
+            <nav>
+                <ul>
+                    <li id="aside-btn-home" class="btn-aside">
+                        <span class="material-symbols-rounded">home</span>
+                        Home
+                    </li>
+                    <li id="aside-btn-login" class="btn-aside">
+                        <span class="material-symbols-outlined">login</span>
+                        LogIn
+                    </li>
+                    <li id="aside-btn-singup" class="btn-aside">
+                        <span class="material-symbols-outlined">man</span>
+                        SingUp
+                    </li>
+                </ul>
+            </nav>
         </div>
         <h5>Get in touch</h5>
         <p>Gigatech is always looking for talented software developers to join our team.
@@ -70,59 +74,85 @@
         </div>
     </aside>
     <main>
-        <section>
-            <div>
+        <section class="hero">
+            <div class="left-conteiner">
                 <h2>Trackgenix</h2>
                 <p>Trackgenix</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero facilis atque, ratione quos nulla enim!</p>
+                <p>Trackgenix software provides businesses with a number of advantages and benefits. One of the most significant advantages of using Trackgenix is that it helps businesses to save time and increase productivity.</p>
+
+                <p>By tracking employee time and project progress, businesses can identify areas where improvements can be made.</p>
                 <button>Learn More</button>
             </div>
-            <div>
+            <div class="right-conteiner">
                 <img src="./assets/img/img-logo-hero.svg" alt="Trackgenix logo">
             </div>
         </section>
         <section>
             <div>
                 <div>
-                    <h3>Reports</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione atque alias tempora libero accusantium! Sed.</p>
+                    <div>
+                        <span></span>
+                    </div>
+                    <div>
+                        <h2>Reports</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione atque alias tempora libero accusantium! Sed.</p>
+                    </div>
                 </div>
                 <div>
-                    <h3>Time registration</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione atque alias tempora libero accusantium! Sed.</p>
+                    <div>
+                        <span></span>
+                    </div>
+                    <div>
+                        <h2>Time registration</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione atque alias tempora libero accusantium! Sed.</p>
+                    </div>
                 </div>
             </div>
             <div>
                 <div>
-                    <h3>Resource managment</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione atque alias tempora libero accusantium! Sed.</p>
+                    <div>
+                        <span></span>
+                    </div>
+                    <div>
+                        <h2>Resource managment</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione atque alias tempora libero accusantium! Sed.</p>
+                    </div>
                 </div>
                 <div>
-                    <h3>Multiple roles</h3>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione atque alias tempora libero accusantium! Sed.</p>
+                    <div>
+                        <span></span>
+                    </div>
+                    <div>
+                        <h2>Multiple roles</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ratione atque alias tempora libero accusantium! Sed.</p>
+                    </div>
                 </div>
             </div>
         </section>
         <section>
             <h2>Why use Trackgenix?</h2>
-            <ul>
-                <li>
-                    <h4>Productivity booster</h4>
-                    <p>The strict way of working and performing the jobs allow a good insertion in the labor world.</p>
-                </li>
-                <li>
-                    <h4>Work traceability</h4>
-                    <p>These processes facilitate and improve the management of work.</p>
-                </li>
-                <li>
-                    <h4>Leadership and team management</h4>
-                    <p>Team Management is essential to establish a good quality of life at work and ensure good Project Management.</p>
-                </li>
-                <li>
-                    <h4>Decision making</h4>
-                    <p>Is the process by which a choice is made between alternatives or ways to solve different life situations.</p>
-                </li>
-            </ul>
+            <div>
+                <ul>
+                    <li>
+                        <h2>Productivity booster</h2>
+                        <p>The strict way of working and performing the jobs allow a good insertion in the labor world.</p>
+                    </li>
+                    <li>
+                        <h2>Work traceability</h2>
+                        <p>These processes facilitate and improve the management of work.</p>
+                    </li>
+                </ul>
+                <ul>
+                    <li>
+                        <h2>Leadership and team management</h2>
+                        <p>Team Management is essential to establish a good quality of life at work and ensure good Project Management.</p>
+                    </li>
+                    <li>
+                        <h2>Decision making</h2>
+                        <p>Is the process by which a choice is made between alternatives or ways to solve different life situations.</p>
+                    </li>
+                </ul>
+            </div>
         </section>
         <section>
             <form action="POST">
