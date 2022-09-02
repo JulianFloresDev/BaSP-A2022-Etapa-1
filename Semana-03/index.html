@@ -8,8 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+    <!-- Google Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <!-- CSS Styles -->
     <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="./css/fonts.css">
     <link rel="stylesheet" href="./css/style.css">
     <title>Trackgenix</title>
 </head>
@@ -28,20 +32,22 @@
     <aside>
         <h2>Menu</h2>
         <div class="btn-aside-conteiner">
-            <div class="div-input-sreach">
-                <span id="icon-sreach"></span>
-                <input id="input-sreach" type="text" placeholder="Sreach">
+            <div class="div-input-search">
+                <span class="material-symbols-outlined icon-search">
+                    search
+                </span>
+                <input id="input-search" type="text" placeholder="Search">
             </div>
-            <button class="btn-aside">
-                <span></span>
+            <button id="aside-btn-home" class="btn-aside">
+                <span class="material-symbols-rounded">home</span>
                 Home
             </button>
-            <button class="btn-aside">
-                <span></span>
+            <button id="aside-btn-login" class="btn-aside">
+                <span class="material-symbols-outlined">login</span>
                 LogIn
             </button>
-            <button class="btn-aside">
-                <span></span>
+            <button id="aside-btn-singup" class="btn-aside">
+                <span class="material-symbols-outlined">man</span>
                 SingUp
             </button>
         </div>
@@ -50,17 +56,17 @@
             If you are interested in working with us, please get in touch.
             We would be happy to discuss your experience and skills.
         </p>
-        <div>
-            <span></span>
-            <a href="mailto:information@untitled.tld">information@untitled.tld</a>
+        <div class="aside-contact-div contact-mail">
+            <span class="material-symbols-rounded">mail</span>
+            <a href="mailto:trackgenix@gigatech.com">trackgenix@gigatech.com</a>
         </div>
-        <div>
-            <span></span>
-            <a href="tel:+(000) 000-0000">(000) 000-0000</a>
+        <div class="aside-contact-div contact-phone">
+            <span class="material-symbols-rounded">call</span>
+            <a href="tel:+415-200-0042">415-200-0042</a>
         </div>
-        <div>
-            <span></span>
-            <a href="mailto:information@untitled.tld">information@untitled.tld</a>
+        <div class="aside-contact-div contact-location">
+            <span class="material-symbols-rounded">house</span>
+            <a href="#">621 Taylor St. , San Francisco, CA</a>
         </div>
     </aside>
     <main>
