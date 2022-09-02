@@ -1,0 +1,111 @@
+/*     Normalize Styles             */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+a {
+    color: white;
+}
+
+/*     End Normalize                */
+/* _________________________________*/
+/*     Header Styles                */
+header {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    height: 120px;
+    background-color: #41426F;
+}
+
+header h1 {
+    display: inline-block;
+    position: absolute;
+    top: 36px;
+    left: 32px;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 47px;
+}
+
+/*     Header Styles End            */
+aside {
+    display: inline-block;
+    position: sticky;
+    top: 0px;
+    width: 288px;
+
+    /* float: left; */
+
+    background-color: #41426F;
+}
+
+aside h2 {
+    width: 102px;
+    height: 47px;
+    margin-left: 17px;
+    margin-top: 23px;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #AACE9B;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 47px;
+}
+
+aside #input-sreach {
+    height: 38px;
+    color: rgba(255, 255, 255, .5);
+    /* text-align: center; */
+    /* align-items: flex-start; */
+    border-color: #FFFFFF;
+    background-color: transparent;
+}
+
+aside .btn-aside {
+    display: block;
+    width: 255px;
+    height: 50px;
+    margin: 12.5px 16px 12.5px 17px;
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    color: #41426F;
+}
+
+aside .div-input-sreach {
+    display: block;
+    width: 255px;
+    height: 50px;
+    margin: 12.5px 16px 12.5px 17px;
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    color: #41426F;
+}
+
+/* Main styles */
+main {
+    width: calc(100% - 288px);
+    float: right;
+    padding: 0px 52px 0px 53px;
+}
+
+footer {
+    width: calc(100% - 288px);
+    height: 147px;
+    float: right;
+    background-color: #41426F;
+}
