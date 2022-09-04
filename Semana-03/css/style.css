@@ -94,6 +94,7 @@ input:focus {
     border: none;
     outline: none;
 }
+
 /* TODO: Arreglar el diseño para que todo el li sea clickeable */
 aside .btn-aside {
     display: block;
@@ -477,22 +478,45 @@ textarea:focus {
 main section.about-us .about-row,
 main section.about-us p {
     display: block;
+    color: #41426F;
 }
+main section.about-us .about-row {
+    margin-bottom: 20px;
+}
+
 main section.about-us .about-row .left-conteiner,
 main section.about-us .about-row .right-conteiner {
     display: inline-block;
     width: 49%;
 }
-main section.about-us .about-row .left-conteiner{
-    margin-bottom: ;
+
+main section.about-us .about-row .left-conteiner,
+main section.about-us .about-row .right-conteiner {
+    display: inline-block;
+    width: 100%;
 }
-main section.about-us .about-row .right-conteiner{
-    height: 200px;
-    border-radius: 10px;
-    background-image: url('../assets/img/img-landing-2.svg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
+
+main section.about-us .about-row .left-conteiner h2 {
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+}
+
+main section.about-us .about-row .left-conteiner p,
+main section.about-us p {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+}
+/* main section.about-us .about-row .left-conteiner p{
+    width: 330px;
+} */
+main section.about-us .about-row .left-conteiner p img {
+    float: right;
+    width: 60%;
+    height: 100%;
+    padding-left: 60px;
 }
 
 /*!       End Main styles       */
