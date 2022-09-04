@@ -22,7 +22,7 @@ header {
     display: inline-block;
     position: relative;
     width: 100%;
-    height: 120px;
+    height: 10%;
     padding: 36px 32px;
     /* background-color: #41426F; */
 }
@@ -40,8 +40,9 @@ aside {
     /* TODO: Arreglar posicion sticky con propiedad float activada (main: floar: right) */
     position: sticky;
     top: 0px;
+    left: 0px;
     width: 21%;
-    height: 959px;
+    height: 90%;
     padding: 0 16px;
     color: #FFFFFF;
     /* background-color: #41426F; */
@@ -373,7 +374,7 @@ main section.why .ul-row li .ul-row-item h3 {
 /**  Form Section  */
 
 main section.form form {
-    width: 572px;
+    width: 80%;
     margin: auto;
     padding: 19px 22px;
     background: #AACE9B;
@@ -480,6 +481,7 @@ main section.about-us p {
     display: block;
     color: #41426F;
 }
+
 main section.about-us .about-row {
     margin-bottom: 20px;
 }
@@ -509,9 +511,7 @@ main section.about-us p {
     font-size: 24px;
     line-height: 28px;
 }
-/* main section.about-us .about-row .left-conteiner p{
-    width: 330px;
-} */
+
 main section.about-us .about-row .left-conteiner p img {
     float: right;
     width: 60%;
@@ -519,12 +519,50 @@ main section.about-us .about-row .left-conteiner p img {
     padding-left: 60px;
 }
 
+/**        Final Section        */
+main section.final {
+    margin-bottom: 100px;
+    color: #41426F;
+}
+
+main section.final .final-column {
+    display: inline-block;
+    width: 32%;
+    padding: 0 5%;
+}
+
+main section.final .final-column:nth-child(2) {
+    border-left: 2px solid #41426F;
+    border-right: 2px solid #41426F;
+}
+
+main section.final .final-column h2 {
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 47px;
+}
+main section.final .final-column ul {
+    padding-left: 22px;
+}
+
+main section.final .final-column li {
+    margin: 15px 0;
+    list-style-image: url('../assets/img/list-style-triangle.png');
+}
+
+main section.final .final-column li a {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    color: #41426F;
+}
+
 /*!       End Main styles       */
 /* ____________________________ */
-/*?         Footer styles         */
+/*?         Footer styles       */
 footer {
-    width: 81%;
-    height: 147px;
+    width: 79%;
+    height: 10%;
     float: right;
     /* background-color: #41426F; */
 }
