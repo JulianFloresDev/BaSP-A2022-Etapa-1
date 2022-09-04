@@ -541,6 +541,7 @@ main section.final .final-column h2 {
     font-size: 40px;
     line-height: 47px;
 }
+
 main section.final .final-column ul {
     padding-left: 22px;
 }
@@ -562,7 +563,27 @@ main section.final .final-column li a {
 /*?         Footer styles       */
 footer {
     width: 79%;
-    height: 10%;
+    /* height: 10%; */
     float: right;
     /* background-color: #41426F; */
+}
+
+footer .icon-conteiner {
+    display: inline-block;
+    width: 50%;
+    margin: 20px 25%;
+    text-align: center;
+}
+
+footer .icon-conteiner a {
+    margin: 0 10%;
+}
+
+footer p {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: #FFFFFF;
 }
