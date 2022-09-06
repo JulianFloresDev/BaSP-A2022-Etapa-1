@@ -119,6 +119,7 @@ aside .btn-aside a {
     width: 100%;
     height: 100%;
     padding-top: 16.5px;
+    border-radius: 5px;
     color: #41426F;
 }
 
@@ -128,7 +129,8 @@ aside .btn-aside a span {
     left: 30%;
 }
 
-aside .btn-aside:hover {
+aside .btn-aside:hover,
+aside .btn-aside:hover a{
     background: #AACE9B;
     color: #FFFFFF;
 }
@@ -409,6 +411,8 @@ main section.form form .form-row select,
 main section.form form .form-row textarea {
     width: 100%;
     height: 37px;
+    padding-left: 15px;
+    padding-right: 15px;
     background-color: transparent;
     border: 1px solid #41426F;
     border-radius: 4px;
