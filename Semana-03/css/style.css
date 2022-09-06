@@ -417,6 +417,7 @@ main section.form form .form-row textarea {
     border: 1px solid #41426F;
     border-radius: 4px;
     color: #41426F;
+    resize: none;
 }
 
 main section.form form .form-row select {
