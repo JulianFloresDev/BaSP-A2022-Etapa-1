@@ -7,10 +7,6 @@
     font-family: 'Roboto', normal;
 }
 
-body {
-    background-color: #41426F;
-}
-
 a {
     color: white;
 }
@@ -18,7 +14,7 @@ a {
 /*     End Normalize                */
 /* _________________________________*/
 /*     Header Styles                */
-header {
+/* header {
     display: block;
     position: fixed;
     top: 0;
@@ -35,7 +31,7 @@ header h1 {
     font-weight: 700;
     font-size: 40px;
     line-height: 47px;
-}
+} */
 
 /*     Header Styles End            */
 aside {
