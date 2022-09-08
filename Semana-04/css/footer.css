@@ -1,0 +1,23 @@
+footer {
+    width: 100%;
+    background-color: #41426F;
+}
+
+footer .icon-conteiner {
+    display: flex;
+    margin: 20px 25%;
+    text-align: center;
+}
+
+footer .icon-conteiner a {
+    margin: 0 10%;
+}
+
+footer p {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: #FFFFFF;
+}
