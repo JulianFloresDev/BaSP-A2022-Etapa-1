@@ -79,8 +79,8 @@ main section.hero .left-conteiner p {
     text-align: justify;
     margin-bottom: 10px;
     font-weight: 400;
-    font-size: 21px;
-    line-height: 25px;
+    font-size: 18px;
+    line-height: 20px;
 }
 
 main section.hero .learn-more-btn {
@@ -129,57 +129,55 @@ section {
 }
 
 /**       Service Section       */
-main section.services .service-row:nth-child(1) {
-    display: block;
-    margin-bottom: 100px;
+main section.services {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 22px;
+}
+main section.services .column{
+    flex: 1 1 100%;
 }
 
-main section.services .service-row .column {
-    display: inline-block;
-    width: 39%;
-    margin: 0px 5%;
+main section.services .column {
+    display: flex;
 }
 
-main section.services .service-row .column .div-rotate-45 {
-    display: block;
+main section.services .column .div-rotate-45 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 41px;
     height: 41px;
     padding: 6px;
+    margin-right: 13px;
     border: 2px solid #AACE9B;
     transform: rotate(-45deg);
 }
 
-main section.services .service-row .column .div-rotate-45 span {
-    width: 29px;
-    height: 29px;
+main section.services .column .div-rotate-45 span {
+    color: #AACE9B;
+    width: 25px;
+    height: 25px;
     transform: rotate(45deg);
 }
 
-main section.services .service-row:nth-child(2) .column:nth-child(2) .div-rotate-45 {
-    padding: 1px;
-}
-
-main section.services .service-row:nth-child(2) .column:nth-child(2) .div-rotate-45 span {
+main section.services .column:nth-child(4) .div-rotate-45 span {
     transform: rotate(135deg);
 }
 
-main section.services .service-row .column .service-info {
-    width: 80%;
-    margin-left: 9px;
+main section.services .column .service-info h2 {
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
 }
 
-main section.services .service-row .column .service-info p {
+main section.services .column .service-info p {
     margin-top: 15px;
     color: #41426F;
     font-weight: 700;
     font-size: 14px;
     line-height: 16px;
-}
-
-main section.services .service-row .column .service-info h2 {
-    font-weight: 700;
-    font-size: 30px;
-    line-height: 35px;
 }
 
 /**        Section Why?         */
@@ -349,12 +347,12 @@ main section.about-us .flex-item {
 }
 
 main section.about-us .flex-item .about-img {
-    flex: 1 0 50%;
+    flex: 1 0 40%;
     align-self: flex-start;
     height: 171px;
     border-radius: 10px;
 
-    background-image: url('../assets/img/img-landing-2.svg');
+    background-image: url('../assets/img/img-logo-hero.svg');
     background-position: center center;
     background-size: cover;
 }

@@ -36,6 +36,11 @@ a {
     main section.hero .right-conteiner .learn-more-btn {
         display: none;
     }
+
+    /**              Service Section             */
+    main section.services .column{
+        flex-basis: 40%;
+    }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -45,5 +50,17 @@ a {
 
     aside {
         display: flex;
+    }
+
+    main section.about-us .flex-item .about-img{
+        flex: 1 0 70%;
+        order: 2;
+    }
+    /**              Service Section             */
+    main section.services{
+        gap: 60px;
+    }
+    main section.services .column .service-info{
+    flex-basis: 60%;
     }
 }
