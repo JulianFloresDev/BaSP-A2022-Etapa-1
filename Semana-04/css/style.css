@@ -38,8 +38,20 @@ a {
     }
 
     /**              Service Section             */
-    main section.services .column{
+    main section.services .column {
         flex-basis: 40%;
+    }
+
+    /**              Why Section             */
+    main section.why {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    main section.why .ul-row {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 20px;
     }
 }
 
@@ -51,25 +63,50 @@ a {
     aside {
         display: flex;
     }
+
     main section.hero .left-conteiner {
         flex-basis: 70%;
     }
+
     main section.about-us .about-p,
     main section.about-us .flex-item .about-p {
         font-size: 24px;
         line-height: 28px;
     }
-    main section.about-us .flex-item .about-img{
+
+    main section.about-us .flex-item .about-img {
         flex: 1 0 70%;
         order: 2;
     }
+
     /**              Service Section             */
-    main section.services{
-        gap: 60px;
+    main section.services {
         padding-left: 5%;
         padding-right: 5%;
     }
-    main section.services .column .service-info{
-    flex-basis: 70%;
+
+    main section.services .column .service-info {
+        flex-basis: 70%;
+    }
+
+    /**              Why Section             */
+    main section.why {
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+
+    main section.why .ul-row {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    main section.why .ul-row li {
+        flex-basis: 40%;
+    }
+
+
+    footer {
+        padding-left: 20%;
     }
 }
