@@ -51,7 +51,14 @@ a {
     aside {
         display: flex;
     }
-
+    main section.hero .left-conteiner {
+        flex-basis: 70%;
+    }
+    main section.about-us .about-p,
+    main section.about-us .flex-item .about-p {
+        font-size: 24px;
+        line-height: 28px;
+    }
     main section.about-us .flex-item .about-img{
         flex: 1 0 70%;
         order: 2;
@@ -59,8 +66,10 @@ a {
     /**              Service Section             */
     main section.services{
         gap: 60px;
+        padding-left: 5%;
+        padding-right: 5%;
     }
     main section.services .column .service-info{
-    flex-basis: 60%;
+    flex-basis: 70%;
     }
 }
