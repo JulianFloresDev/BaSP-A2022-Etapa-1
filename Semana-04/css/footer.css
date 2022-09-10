@@ -11,6 +11,10 @@ footer .icon-conteiner {
     text-align: center;
 }
 
+footer .icon-conteiner i {
+    font-size: 3rem;
+}
+
 footer p {
     font-weight: 500;
     font-size: 15px;

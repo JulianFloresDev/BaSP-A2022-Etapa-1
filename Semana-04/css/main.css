@@ -7,7 +7,6 @@ aside {
 }
 
 main {
-    /*todo:fix whidths aside/main*/
     flex: 1 1 80%;
     display: flex;
     flex-direction: column;
@@ -77,7 +76,7 @@ main section.hero .left-conteiner h3 {
 
 main section.hero .left-conteiner p {
     text-align: justify;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-weight: 400;
     font-size: 18px;
     line-height: 20px;
@@ -217,8 +216,12 @@ main section.why .ul-row li p {
 
 /**  Form Section  */
 
-main section.form form {
-    width: 60%;
+#landing-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 480px;
+    width: 100%;
     margin: auto;
     padding: 19px 22px;
     background: #AACE9B;
@@ -226,24 +229,12 @@ main section.form form {
 }
 
 main section.form form .form-row {
-    display: block;
     width: 100%;
     margin-bottom: 2%;
 }
 
-main section.form form .form-row .form-column {
-    display: inline-block;
-    width: 47.5%;
-}
-
-main section.form form .form-row .form-column:first-child {
-    margin-right: 4%;
-}
-
 main section.form form .form-row label,
 main section.form form .form-row input {
-    display: block;
-    width: 100%;
     height: 25px;
     font-weight: 500;
     font-size: 14px;
@@ -255,7 +246,7 @@ main section.form form .form-row input,
 main section.form form .form-row select,
 main section.form form .form-row textarea {
     width: 100%;
-    height: 37px;
+    height: 2.3rem;
     padding-left: 15px;
     padding-right: 15px;
     background-color: transparent;
@@ -263,11 +254,6 @@ main section.form form .form-row textarea {
     border-radius: 4px;
     color: #41426F;
     resize: none;
-}
-
-main section.form form .form-row select {
-    width: 100%;
-    margin-bottom: 100px;
 }
 
 select:target,
@@ -278,7 +264,6 @@ select:focus {
     outline: none;
 }
 
-/* TODO: modificar el estilizado del option */
 main section.form form .form-row select option,
 main section.form form .form-row select:focus-visible option,
 main section.form form .form-row select:target option,
@@ -293,7 +278,7 @@ main section.form form .form-row select:focus option {
 }
 
 main section.form form .form-row textarea {
-    height: 21.45%;
+    height: 5rem;
     padding: 10px 16px;
 }
 
@@ -306,9 +291,9 @@ textarea:focus {
 }
 
 #form-send-btn {
-    width: 50%;
-    height: 50px;
-    margin-left: 50%;
+    width: 30%;
+    padding: 5px 20px;
+    margin-left: 70%;
     background: #FFFFFF;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 5px;
@@ -362,18 +347,26 @@ main section.about-us p {
 
 /**        Final Section        */
 main section.final {
-    margin-bottom: 100px;
+    display: flex;
+    align-items: center;
+    /* margin-bottom: 100px; */
 }
 
 main section.final .column {
-    display: inline-block;
-    width: 32%;
-    padding: 0 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 5%;
 }
 
-main section.final .column:nth-child(2) {
-    border-left: 2px solid #41426F;
-    border-right: 2px solid #41426F;
+main section.final .column:nth-of-type(2) {
+    border-top: 3px solid #41426F;
+    border-bottom: 3px solid #41426F;
+}
+
+main section.final .column:nth-of-type(3) {
+    border-bottom: 3px solid #41426F;
 }
 
 main section.final .column h2 {
@@ -387,14 +380,14 @@ main section.final .column ul {
 }
 
 main section.final .column li {
-    margin: 15px 0;
+    margin: 2rem 0;
     list-style-image: url('../assets/img/icons/list-style-triangle.png');
 }
 
 main section.final .column li a {
-    font-weight: 700;
-    font-size: 15px;
-    line-height: 18px;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 26px;
     color: #41426F;
 }
 

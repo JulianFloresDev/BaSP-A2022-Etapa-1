@@ -21,6 +21,8 @@ a {
 }
 
 @media only screen and (min-width: 768px) {
+
+    /**              Hero Section             */
     main section.hero {
         flex-direction: row;
     }
@@ -53,6 +55,55 @@ a {
         flex-wrap: nowrap;
         gap: 20px;
     }
+
+    /**              Form Section             */
+    #landing-form {
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 60%;
+    }
+
+    main section.form form .form-row:nth-of-type(1) {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    main section.form form .form-row .row-element {
+        flex: 1 1 50%;
+    }
+
+    main section.form form .form-row select {
+        margin-bottom: 100px;
+    }
+
+    #form-send-btn {
+        width: 50%;
+        height: 50px;
+        margin-left: 50%;
+    }
+
+    /**              Final Section             */
+    main section.final {
+        flex-direction: row;
+    }
+
+    main section.final .column:nth-child(2) {
+        border-top: none;
+        border-bottom: none;
+        border-left: 2px solid #41426F;
+        border-right: 2px solid #41426F;
+    }
+
+    main section.final .column:nth-of-type(3) {
+        border: none;
+    }
+
+    main section.final .column li a {
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 18px;
+    }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -64,10 +115,12 @@ a {
         display: flex;
     }
 
+    /**              Hero Section             */
     main section.hero .left-conteiner {
         flex-basis: 70%;
     }
 
+    /**              About Section             */
     main section.about-us .about-p,
     main section.about-us .flex-item .about-p {
         font-size: 24px;
@@ -104,7 +157,6 @@ a {
     main section.why .ul-row li {
         flex-basis: 40%;
     }
-
 
     footer {
         padding-left: 20%;
