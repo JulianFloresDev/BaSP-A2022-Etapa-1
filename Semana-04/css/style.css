@@ -39,11 +39,6 @@ a {
         display: none;
     }
 
-    /**              Service Section             */
-    main section.services .column {
-        flex-basis: 40%;
-    }
-
     /**              Why Section             */
     main section.why {
         padding-left: 10%;
@@ -60,7 +55,6 @@ a {
     #landing-form {
         flex-direction: row;
         flex-wrap: wrap;
-        width: 60%;
     }
 
     main section.form form .form-row:nth-of-type(1) {
@@ -120,6 +114,7 @@ a {
         flex-basis: 70%;
     }
 
+
     /**              About Section             */
     main section.about-us .about-p,
     main section.about-us .flex-item .about-p {
@@ -132,15 +127,6 @@ a {
         order: 2;
     }
 
-    /**              Service Section             */
-    main section.services {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-
-    main section.services .column .service-info {
-        flex-basis: 70%;
-    }
 
     /**              Why Section             */
     main section.why {

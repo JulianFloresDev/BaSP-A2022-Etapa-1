@@ -131,17 +131,15 @@ section {
 /**       Service Section       */
 main section.services {
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
     flex-wrap: wrap;
-    gap: 5rem;
-}
-
-main section.services .column {
-    flex: 1 1 100%;
+    gap: 4rem;
 }
 
 main section.services .column {
     display: flex;
+    flex: 1 1 45%;
 }
 
 main section.services .column .div-rotate-45 {
