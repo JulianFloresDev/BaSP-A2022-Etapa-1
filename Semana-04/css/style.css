@@ -77,8 +77,8 @@ a {
     }
 
     /**              Final Section             */
-    main section.final {
-        flex-direction: row;
+    main section.final .column{
+        flex: 1 0 30%;
     }
 
     main section.final .column:nth-child(2) {
