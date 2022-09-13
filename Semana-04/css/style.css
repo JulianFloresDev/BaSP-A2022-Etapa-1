@@ -44,12 +44,6 @@ a {
         padding-right: 10%;
     }
 
-    main section.why .ul-row {
-        flex-direction: column;
-        flex-wrap: nowrap;
-        gap: 20px;
-    }
-
     /**              Form Section             */
     #landing-form {
         flex-direction: row;
@@ -132,8 +126,6 @@ a {
     }
 
     main section.why .ul-row {
-        flex-direction: row;
-        flex-wrap: wrap;
         justify-content: space-between;
     }
 
