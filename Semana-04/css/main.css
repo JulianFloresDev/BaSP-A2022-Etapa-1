@@ -186,6 +186,7 @@ main section.why h2 {
 main section.why .ul-row {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     gap: 4rem;
     padding: 0 5%;
 }

@@ -125,10 +125,6 @@ a {
         padding-right: 0%;
     }
 
-    main section.why .ul-row {
-        justify-content: space-between;
-    }
-
     main section.why .ul-row li {
         flex-basis: 40%;
     }
