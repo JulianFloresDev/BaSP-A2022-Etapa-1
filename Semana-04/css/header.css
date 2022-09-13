@@ -24,8 +24,8 @@ header .burger-menu {
     flex-direction: column;
     justify-content: space-between;
     align-content: center;
-    height: 4em;
-    width: 4em;
+    height: 3em;
+    width: 3em;
     padding: 10px;
     cursor: pointer;
     transition: all .4s linear;
@@ -39,7 +39,7 @@ header .burger-menu .menu-line {
 }
 
 /** Menu active interaction: */
-/* header .burger-menu.active {
+/* header .burger-menu {
     border-radius: 50%;
     background-color: rgb(255, 255, 255, .25)
 }
@@ -49,8 +49,8 @@ header .burger-menu .menu-line.active:nth-child(2) {
 }
 
 header .burger-menu .menu-line.active:nth-child(1) {
-    transform: translateY(20px) rotate(-45deg);
+    transform: translateY(12px) rotate(-45deg);
 }
 header .burger-menu .menu-line.active:nth-child(3) {
-    transform: translateY(-20px) rotate(45deg);
+    transform: translateY(-12px) rotate(45deg);
 } */

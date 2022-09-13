@@ -21,7 +21,6 @@ a {
 }
 
 @media only screen and (min-width: 768px) {
-
     /**              Hero Section             */
     main section.hero {
         flex-direction: row;
@@ -114,7 +113,6 @@ a {
         flex-basis: 70%;
     }
 
-
     /**              About Section             */
     main section.about-us .about-p,
     main section.about-us .flex-item .about-p {
@@ -126,7 +124,6 @@ a {
         flex: 1 0 70%;
         order: 2;
     }
-
 
     /**              Why Section             */
     main section.why {

@@ -1,12 +1,12 @@
 aside {
     flex: 0 0 20%;
-    display: flex;
+    display: none;
     flex-direction: column;
     gap: 5px;
     position: sticky;
     top: 120px;
     left: 0px;
-    height: 90%;
+    height: 100vh;
     padding: 0 16px;
     color: #FFFFFF;
     background-color: #41426F;
@@ -91,7 +91,7 @@ aside .btn-aside:hover a {
     color: #FFFFFF;
 }
 
-aside h5 {
+aside h3 {
     max-width: fit-content;
     padding-bottom: 4px;
     margin-top: 20px;

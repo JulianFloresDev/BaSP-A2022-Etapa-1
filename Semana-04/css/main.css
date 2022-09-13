@@ -2,10 +2,6 @@
     display: flex;
 }
 
-aside {
-    display: none;
-}
-
 main {
     flex: 1 1 80%;
     display: flex;
