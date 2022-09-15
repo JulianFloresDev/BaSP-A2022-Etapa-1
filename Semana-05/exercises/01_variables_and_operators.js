@@ -20,4 +20,4 @@ var stringLength1 = 'Mentira, no me drogo...';
 var stringLength2 = 'Fumar porro no es drogarse!';
 
 var finalLength = stringLength1.length + stringLength2.length;
-console.log(finalLength);
+console.log('Add string1 length to string2 length is equal to:',finalLength);
