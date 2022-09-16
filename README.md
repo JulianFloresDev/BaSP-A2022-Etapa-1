@@ -30,3 +30,12 @@ This week it's time to recreate the mobile and tablet versions from latest week 
 - Redesign my README.md to include GitHubPages to my work space.
 - Restructured _'style.css'_ into several components, which one represents each layout sections.
 - I gave _'mobile-first'_ structure to my CSS whit flex-box model & media queries.
+
+## _[Week 05:](https://julianfloresdev.github.io/BaSP-A2022-Etapa-1/Semana-05/index.html)_
+This week it's time to learn javascript and for that I decided to do as many exercises of the 'FreeCodeCamp' platform as possible.
+
+After that, I took care of doing the exercises of the weekly problem, but as I felt like continuing with javascript, and because I already had previous knowledge, I decided to continue with the exercises of 'FreeCodeCamp'.
+
+### This week I
+- Practice Javscript and general programming logic concepts.
+- Deeply train my concepts about array methods.
