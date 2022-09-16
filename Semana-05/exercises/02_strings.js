@@ -27,5 +27,6 @@ console.log(exercise2EResponse);
 
 //? f)
 var e2F = 'aBaRaKadabraAaAaA dumBLeDOoOoOoOr';
-var exercise2FResponse = e2F.substring(0,1).toUpperCase() + e2F.substring(1, e2F.indexOf(' ')).toLowerCase() +  e2F.substring(e2F.indexOf(' ') + 1, (e2F.indexOf(' ') + 2)).toUpperCase() + e2F.substring(e2F.indexOf(' ') + 2).toLowerCase();
+var exercise2FResponse = e2F.substring(0,1).toUpperCase() + e2F.substring(1, e2F.indexOf(' ')).toLowerCase()
+    + e2F.substring(e2F.indexOf(' ') + 1, (e2F.indexOf(' ') + 2)).toUpperCase() + e2F.substring(e2F.indexOf(' ') + 2).toLowerCase();
 console.log(exercise2FResponse);
