@@ -128,8 +128,4 @@ a {
     main section.why .ul-row li {
         flex-basis: 40%;
     }
-
-    footer {
-        padding-left: 20%;
-    }
 }
