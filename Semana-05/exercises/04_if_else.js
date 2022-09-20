@@ -11,27 +11,19 @@ if (randomNum >= 0.5) {
 
 //? b)
 var Age = Math.round(Math.random() * 100);
-console.log(Age);
-switch (true){
-    case Age < 2:
-        console.log("Baby");
-        break;
-    case Age < 12:
-        console.log("Child");
-        break;
-    case Age < 19:
-        console.log("Teenager");
-        break;
-    case Age < 30:
-        console.log("Young");
-        break;
-    case Age < 60:
-        console.log("Adult");
-        break;
-    case Age < 75:
-        console.log("Older Adult");
-        break;
-    default:
-        console.log("Elderly");
-        break;
+console.log('Exercise 4 b) The random "Age" is: ', Age);
+if (Age < 2) {
+    console.log("Baby");
+} else if (Age < 12) {
+    console.log("Child");
+} else if (Age < 19) {
+    console.log("Teenager");
+} else if (Age < 30) {
+    console.log("Young");
+} else if (Age < 60) {
+    console.log("Adult");
+} else if (Age < 75) {
+    console.log("Older Adult");
+} else {
+    console.log("Elderly");
 }
