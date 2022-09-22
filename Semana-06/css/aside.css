@@ -1,0 +1,132 @@
+aside {
+    flex: 0 0 20%;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    position: sticky;
+    top: 120px;
+    left: 0px;
+    height: 100vh;
+    padding: 0 16px;
+    color: #FFFFFF;
+    background-color: #41426F;
+}
+
+aside h2 {
+    max-width: fit-content;
+    height: 47px;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #AACE9B;
+    color: #FFFFFF;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 47px;
+}
+
+aside .div-input-search {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 38px;
+    color: rgba(255, 255, 255, .5);
+    border: 1px solid #FFFFFF;
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+aside .icon-search {
+    display: inline;
+    margin: 7px 5px 7px 8px;
+}
+
+#input-search {
+    display: inline;
+    width: calc(100% - 38px);
+    height: 100%;
+    border: none;
+    box-shadow: inherit;
+    background-color: transparent;
+}
+
+input:target,
+input:focus-visible,
+input:focus {
+    color: rgba(255, 255, 255, .5);
+    border: none;
+    outline: none;
+}
+
+aside .btn-aside {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 50px;
+    margin: 12.5px 0;
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    color: #41426F;
+}
+
+aside .btn-aside a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    color: #41426F;
+}
+
+aside .btn-aside:hover,
+aside .btn-aside:hover a {
+    background: #AACE9B;
+    color: #FFFFFF;
+}
+
+aside h3 {
+    max-width: fit-content;
+    padding-bottom: 4px;
+    margin-top: 20px;
+    border-bottom: 3px solid #AACE9B;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    color: white;
+}
+
+aside>p {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 13px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+}
+
+aside .aside-contact-div {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    margin-top: 10px;
+    padding: 3px 5px;
+    padding-bottom: 11px;
+    border-bottom: 1px solid #AACE9B;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16px;
+}
+
+aside .aside-contact-div:last-child {
+    border-bottom: none;
+}
