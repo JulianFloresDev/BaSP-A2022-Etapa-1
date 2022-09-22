@@ -5,6 +5,7 @@
 .main-footer-conteiner {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 main {
