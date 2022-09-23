@@ -40,7 +40,7 @@ After that, I took care of doing the exercises of the weekly problem, but as I f
 - Practice Javscript and general programming logic concepts.
 - Deeply train my concepts about array methods.
 
-## _[Week 06:](https://julianfloresdev.github.io/BaSP-A2022-Etapa-1/Semana-06/index.html)_ Javascript - DOM
+## _[Week 06:](https://julianfloresdev.github.io/BaSP-A2022-Etapa-1/Semana-06/views/index.html)_ Javascript - DOM
 This week we had the challenge of creating the user registration and login pages for the application. For this we had to put into practice what we had learned about Javascript, to perform the corresponding verifications in the fields of each form.
 
 On the other hand we had the need to give shape and structure to the aforementioned pages, so that they look faithful to the original design in Figma, replicating and reusing as much as possible the styles created weeks ago.
