@@ -16,6 +16,7 @@
         <link rel="stylesheet" href="../css/footer.css">
         <link rel="stylesheet" href="../css/style.css">
         <link rel="stylesheet" href="../css/login.css">
+        <script src="../js/login.js"></script> <!-- Preguntar variables locales -->
     <title>Trackgenix - Log In</title>
 </head>
 <body>
@@ -89,17 +90,19 @@
                         </picture>
                         <div class="login-inputs-div">
                             <h1 class="login-inputs-element login-title">Log in</h1>
-                            <input type="text" id="login-email-input" class="login-inputs-element register-inputs">
-                            <input type="password" id="login-password-input" class="login-inputs-element register-inputs">
+                            <input type="text" id="login-email-input" class="login-inputs-element register-inputs" required placeholder="Email">
+                            <p id="invalid-email-message" class="invalid-message"></p>
+                            <input type="password" id="login-password-input" class="login-inputs-element register-inputs" required placeholder="Password">
+                            <p id="invalid-password-message" class="invalid-message"></p>
                             <div class="login-inputs-element remember-div">
                                 <input type="checkbox" name="remember" id="login-remember-checkbox">
                                 <label for="login-remember-checkbox" id="login-remember-text">Remember me</label>
                             </div>
-                            <a href="#" id="login-forgot">Forgot your password?</a>
+                            <a href="#" id="login-forgot" class="login-inputs-element">Forgot your password?</a>
                         </div>
                         <div class="login-buttons-div">
                             <a href="./index.html" id="back-btn" class="btn back-btn">Back</a>
-                            <a href="#" id="login-btn" class="btn login-btn">Log In</a>
+                            <input type="submit" value="Log In" id="login-btn" class="btn login-btn"> <!-- Preguntar si va submit o lo cambio por un 'a' -->
                         </div>
                     </div>
                 </main>

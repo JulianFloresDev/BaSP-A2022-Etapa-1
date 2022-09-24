@@ -1,3 +1,4 @@
+/*! Static Styles for Login Page. */
 main {
     flex-direction: row;
     justify-content: center;
@@ -24,7 +25,6 @@ main {
 
 .login-inputs-div {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
     gap: 14px;
     padding: 16px;
@@ -80,16 +80,6 @@ main {
     color: #515AAA;
 }
 
-/* #login-remember-text::before {
-    content: '';
-    width: 7px;
-    height: 7px;
-    padding: 3px;
-    border-radius: 50%;
-    background: #D9D9D9;
-    border: 2px solid #373867;
-} */
-
 #login-forgot {
     padding: .5em;
     font-family: 'Roboto';
@@ -108,6 +98,11 @@ main {
 }
 
 .login-buttons-div .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 64px;
     font-family: 'Roboto';
     font-style: normal;
     font-weight: 700;
@@ -115,9 +110,10 @@ main {
     line-height: 18px;
     color: #FFFFFF;
 
-    padding: 24px 58px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
+    border: none;
+    cursor: pointer;
 }
 
 .login-buttons-div .back-btn {
@@ -126,4 +122,36 @@ main {
 
 .login-buttons-div .login-btn {
     background: #41426F;
+}
+
+.login-buttons-div .btn:hover {
+    color: #41426F;
+    background: #FFFFFF;
+}
+input:focus-visible,
+input:focus {
+    border: 1px solid #41426F;
+
+}
+/*!  Dinamics Styles to manipulate with JS. */
+.invalid {
+    border: 1px solid #FF3E1D;
+    color: #FF3E1D;
+}
+
+.invalid-message {
+    display: none;
+    align-self: flex-start;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: -0.3px;
+    color: #FF3E1D;
+    opacity: .8;
+}
+
+.invalid-message.active {
+    display: flex;
 }
