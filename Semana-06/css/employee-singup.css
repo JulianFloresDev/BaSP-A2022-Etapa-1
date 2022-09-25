@@ -1,0 +1,155 @@
+/*! Static Styles for Sing Up Page. */
+main {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 50px;
+}
+
+.employee-singup-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 650px;
+    gap: 10px;
+
+    background-image: url('../assets/img/singup-background-logo.svg');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.employee-singup-container>.singup-element {
+    flex: 0 0 100%;
+}
+
+.employee-singup-container .principal-title {
+    margin-bottom: 70px;
+    padding-left: 54px;
+    text-transform: uppercase;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 47px;
+    color: #41426F;
+}
+
+.singup-element.second-title-div .second-title {
+    width: fit-content;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 47px;
+    color: #41426F;
+    border-bottom: 3px solid #41426F;
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+
+.form-container .form-row {
+    flex: 1 0 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.form-container .form-row .form-item {
+    flex: 1 1 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-container .form-row .form-item .login-inputs-element {
+    padding: 10px 12px;
+    background: transparent;
+    border: 1px solid #373867;
+    border-radius: 4px;
+}
+
+.form-container .form-row .form-item,
+.form-container .form-row .form-item .login-inputs-element{
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #373867;
+}
+
+.login-buttons-div {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.login-buttons-div .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 64px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    color: #FFFFFF;
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.login-buttons-div .back-btn {
+    background: #49A37B;
+}
+
+.login-buttons-div .login-btn {
+    background: #41426F;
+}
+
+.login-buttons-div .btn:hover {
+    color: #41426F;
+    background: #FFFFFF;
+}
+input:focus-visible,
+input:focus {
+    border: 1px solid #41426F;
+
+}
+/*!  Dinamics Styles to manipulate with JS. */
+.invalid {
+    border: 1px solid #FF3E1D;
+    color: #FF3E1D;
+}
+
+.invalid-message {
+    display: none;
+    align-self: flex-start;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: -0.3px;
+    color: #FF3E1D;
+    opacity: .8;
+}
+
+.invalid-message.active {
+    display: flex;
+}
