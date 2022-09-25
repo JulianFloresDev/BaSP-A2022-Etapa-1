@@ -134,7 +134,7 @@ input:focus {
 
 }
 /*!  Dinamics Styles to manipulate with JS. */
-.invalid {
+.invalid-input {
     border: 1px solid #FF3E1D;
     color: #FF3E1D;
 }
