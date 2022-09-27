@@ -14,7 +14,8 @@ window.onload = function () {
     var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
     var inputEmail = document.querySelector('#login-email-input'),
         inputPassword = document.querySelector('#login-password-input'),
-        loginBtn = document.querySelector('#login-btn');
+        loginBtn = document.querySelector('#login-btn'),
+        loginInputElements = document.querySelectorAll('.register-inputs');
 
     /**
      *? Functions to manipulate styles:
@@ -23,12 +24,6 @@ window.onload = function () {
         input.classList.add('invalid-input');
         invalidAlert.innerText = alertError;
         invalidAlert.classList.add('active');
-    }
-
-    function correctInputValue(input, invalidAlert) {
-        input.classList.remove('invalid-input');
-        invalidAlert.innerText = '';
-        invalidAlert.classList.remove('active');
     }
 
     function focusInput(input, invalidAlert) {
@@ -44,34 +39,42 @@ window.onload = function () {
     }
 
     inputEmail.onblur = function () {
+        //* Valid length checking
         if (inputEmail.value.length == 0) {
             inputInvalid(inputEmail, inputEmail.nextElementSibling, alertErrorText.required);
         } else if (inputEmail.value.length < 3) {
             inputInvalid(inputEmail, inputEmail.nextElementSibling, alertErrorText.emailMin);
         } else {
+            //* Type of value checking
             if (!emailExpression.test(inputEmail.value)) {
                 inputInvalid(inputEmail, inputEmail.nextElementSibling, alertErrorText.emailValid)
-            } else {
-                correctInputValue(inputEmail.nextElementSibling);
             }
         }
     }
 
     inputPassword.onblur = function () {
         if (inputPassword.value.length == 0) {
+        //* Valid length checking
             inputInvalid(inputPassword, inputPassword.nextElementSibling, alertErrorText.required);
         } else if (inputPassword.value.length < 8 || inputPassword.value.length > 25) {
             inputInvalid(inputPassword, inputPassword.nextElementSibling, alertErrorText.passwordValid);
         } else {
+            //* Type of value checking
             if (inputPassword.value.indexOf(' ') != -1) {
                 inputInvalid(inputPassword, inputPassword.nextElementSibling, alertErrorText.passwordSpaces);
-            } else {
-                correctInputValue(inputPassword.nextElementSibling);
             }
         }
     }
 
     function formValidate() {
+        loginInputElements.forEach(function(element){
+            if(element.value.length == 0){
+                console.log('elemento en blanco', element.name);
+                inputInvalid(element, element.nextElementSibling, alertErrorText.required);
+            } else{
+                console.log('elemento con datos', element.name);
+            }
+        });
         invalidInputs = document.querySelectorAll('.invalid-input') || [];
 
         if (invalidInputs.length == 0) {
