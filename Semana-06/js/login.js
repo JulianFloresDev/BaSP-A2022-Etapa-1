@@ -37,36 +37,36 @@ window.onload = function () {
         invalidAlert.classList.remove('active');
     }
     inputEmail.onfocus = function () {
-        focusInput(this, this.nextElementSibling);
+        focusInput(inputEmail, inputEmail.nextElementSibling);
     }
     inputPassword.onfocus = function () {
-        focusInput(this, this.nextElementSibling);
+        focusInput(inputPassword, inputPassword.nextElementSibling);
     }
 
     inputEmail.onblur = function () {
-        if (this.value.length == 0) {
-            inputInvalid(this, this.nextElementSibling, alertErrorText.required);
-        } else if (this.value.length < 3) {
-            inputInvalid(this, this.nextElementSibling, alertErrorText.emailMin);
+        if (inputEmail.value.length == 0) {
+            inputInvalid(inputEmail, inputEmail.nextElementSibling, alertErrorText.required);
+        } else if (inputEmail.value.length < 3) {
+            inputInvalid(inputEmail, inputEmail.nextElementSibling, alertErrorText.emailMin);
         } else {
-            if (!emailExpression.test(this.value)) {
-                inputInvalid(this, this.nextElementSibling, alertErrorText.emailValid)
+            if (!emailExpression.test(inputEmail.value)) {
+                inputInvalid(inputEmail, inputEmail.nextElementSibling, alertErrorText.emailValid)
             } else {
-                correctInputValue(this, this.nextElementSibling);
+                correctInputValue(inputEmail.nextElementSibling);
             }
         }
     }
 
     inputPassword.onblur = function () {
-        if (this.value.length == 0) {
-            inputInvalid(this, this.nextElementSibling, alertErrorText.required);
-        } else if (this.value.length < 8 || this.value.length > 25) {
-            inputInvalid(this, this.nextElementSibling, alertErrorText.passwordValid);
+        if (inputPassword.value.length == 0) {
+            inputInvalid(inputPassword, inputPassword.nextElementSibling, alertErrorText.required);
+        } else if (inputPassword.value.length < 8 || inputPassword.value.length > 25) {
+            inputInvalid(inputPassword, inputPassword.nextElementSibling, alertErrorText.passwordValid);
         } else {
-            if (this.value.indexOf(' ') != -1) {
-                inputInvalid(this, this.nextElementSibling, alertErrorText.passwordSpaces);
+            if (inputPassword.value.indexOf(' ') != -1) {
+                inputInvalid(inputPassword, inputPassword.nextElementSibling, alertErrorText.passwordSpaces);
             } else {
-                correctInputValue(this, this.nextElementSibling);
+                correctInputValue(inputPassword.nextElementSibling);
             }
         }
     }
@@ -84,28 +84,6 @@ window.onload = function () {
     }
 
     loginBtn.addEventListener('click', formValidate);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
 console.log("Carga primero, antes de cargar la página");

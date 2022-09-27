@@ -89,77 +89,139 @@
                             <h2 class="second-title">Register Account</h2>
                         </div>
                         <div class="singup-element form-container">
-                            <div class="form-row">
-                                <div class="form-item">
-                                    <label for="singup-input-name" class="singup-label">Name</label>
-                                    <input type="text" name="Name" id="singup-input-name"  class="login-inputs-element" placeholder="Name" required>
-                                    <p id="name-invalid-message" class="invalid-message"></p>
-                                </div>
-                                <div class="form-item">
-                                    <label for="singup-input-lastname" class="singup-label">Last Name</label>
-                                    <input type="text" name="LastName" id="singup-input-lastname" class="login-inputs-element" placeholder="Last Name" required>
-                                    <p id="lastname-invalid-message" class="invalid-message"></p>
-                                </div>
+                            <div class="form-item">
+                                <label for="singup-input-name" class="singup-label">Name</label>
+                                <input
+                                type="text"
+                                name="name"
+                                id="singup-input-name"
+                                class="login-input-element"
+                                placeholder="Name"
+                                required>
+                                <p id="name-invalid-message" class="invalid-message"></p>
                             </div>
-                            <div class="form-row">
-                                <div class="form-item">
-                                    <label for="singup-input-DNI">D.N.I.</label>
-                                    <input type="text" name="DNI" id="singup-input-DNI" class="login-inputs-element" placeholder="12345678" required>
-                                    <p id="DNI-invalid-message" class="invalid-message"></p>
-                                </div>
-                                <div class="form-item">
-                                    <label for="singup-input-birthdate">Birthdate</label>
-                                    <input type="date" name="birthdate" id="singup-input-birthdate" class="login-inputs-element"  placeholder="dd/mm/aaaa" required>
-                                    <p id="birthdate-invalid-message" class="invalid-message"></p>
-                                </div>
+                            <div class="form-item">
+                                <label for="singup-input-lastname" class="singup-label">Last Name</label>
+                                <input
+                                type="text"
+                                name="lastName"
+                                id="singup-input-lastname"
+                                class="login-input-element"
+                                placeholder="Last Name"
+                                required
+                                jsMinLength="4"
+                                jsMaxLength="20">
+                                <p id="lastname-invalid-message" class="invalid-message"></p>
                             </div>
-                            <div class="form-row">
-                                <div class="form-item">
-                                    <label for="singup-input-phone">Phone</label>
-                                    <input type="text" name="phone" id="singup-input-phone" class="login-inputs-element" placeholder="3417788991" required>
-                                    <p id="phone-invalid-message" class="invalid-message"></p>
-                                </div>
-                                <div class="form-item">
-                                    <label for="">Address</label>
-                                    <input type="text" name="address" id="singup-input-address" class="login-inputs-element" placeholder="123 False Street" required>
-                                    <p id="address-invalid-message" class="invalid-message"></p>
-                                </div>
+                            <div class="form-item">
+                                <label for="singup-input-DNI">D.N.I.</label>
+                                <input
+                                type="text"
+                                name="DNI"
+                                id="singup-input-DNI"
+                                class="login-input-element"
+                                placeholder="12345678"
+                                required>
+                                <p id="DNI-invalid-message" class="invalid-message"></p>
                             </div>
-                            <div class="form-row">
-                                <div class="form-item">
-                                    <label for="">Locatio</label>
-                                    <input type="text" name="location" id="singup-input-locality" class="login-inputs-element" placeholder="New York" required>
-                                    <p id="location-invalid-message" class="invalid-message"></p>
-                                </div>
-                                <div class="form-item">
-                                    <label for="">Postal Code</label>
-                                    <input type="text" name="postal" id="singup-input-postal" class="login-inputs-element" placeholder="10024" required>
-                                    <p id="postal-invalid-message" class="invalid-message"></p>
-                                </div>
+                            <div class="form-item">
+                                <label for="singup-input-birthdate">Birthdate</label>
+                                <input
+                                type="date"
+                                name="birthdate"
+                                id="singup-input-birthdate"
+                                class="login-input-element"
+                                 placeholder="dd/mm/aaaa"
+                                 required>
+                                <p id="birthdate-invalid-message" class="invalid-message"></p>
                             </div>
-                            <div class="form-row">
-                                <div class="form-item">
-                                    <label for="">Email</label>
-                                    <input type="text" name="email" id="singup-input-email" class="login-inputs-element" placeholder="messiselomeressi@traelacopa.com" required>
-                                    <p id="email-invalid-message" class="invalid-message"></p>
-                                </div>
-                                <div class="form-item">
-                                    <label for="">Confirm Email</label>
-                                    <input type="text" name="repeat-email" id="singup-input-repeat-email" placeholder="messiselomeressi@traelacopa.com"  class="login-inputs-element" required>
-                                    <p id="repeat-email-invalid-message" class="invalid-message"></p>
-                                </div>
+                            <div class="form-item">
+                                <label for="singup-input-phone">Phone</label>
+                                <input
+                                type="text"
+                                name="phone"
+                                id="singup-input-phone"
+                                class="login-input-element"
+                                placeholder="3417788991"
+                                required>
+                                <p id="phone-invalid-message" class="invalid-message"></p>
                             </div>
-                            <div class="form-row">
-                                <div class="form-item">
-                                    <label for="">Password</label>
-                                    <input type="text" name="password" id="singup-input-password" class="login-inputs-element" placeholder="**********" required>
-                                    <p id="password-invalid-message" class="invalid-message"></p>
-                                </div>
-                                <div class="form-item">
-                                    <label for="">Confirm Password</label>
-                                    <input type="text" name="repeat-password" id="singup-input-repeat-password" class="login-inputs-element" placeholder="**********" required>
-                                    <p id="repeat-password-invalid-message" class="invalid-message"></p>
-                                </div>
+                            <div class="form-item">
+                                <label for="singup-input-address">Address</label>
+                                <input
+                                type="text"
+                                name="address"
+                                id="singup-input-address"
+                                class="login-input-element"
+                                placeholder="123 False Street"
+                                required>
+                                <p id="address-invalid-message" class="invalid-message"></p>
+                            </div>
+                            <div class="form-item">
+                                <label for="singup-input-location">City</label>
+                                <input
+                                type="text"
+                                name="location"
+                                id="singup-input-location"
+                                class="login-input-element"
+                                placeholder="New York"
+                                required>
+                                <p id="location-invalid-message" class="invalid-message"></p>
+                            </div>
+                            <div class="form-item">
+                                <label for="singup-input-postal">Postal Code</label>
+                                <input
+                                type="text"
+                                name="postal"
+                                id="singup-input-postal"
+                                class="login-input-element"
+                                placeholder="10024"
+                                required>
+                                <p id="postal-invalid-message" class="invalid-message"></p>
+                            </div>
+                            <div class="form-item">
+                                <label for="singup-input-email">Email</label>
+                                <input
+                                type="text"
+                                name="email"
+                                id="singup-input-email"
+                                class="login-input-element"
+                                placeholder="messiselomeressi@traelacopa.com"
+                                required>
+                                <p id="email-invalid-message" class="invalid-message"></p>
+                            </div>
+                            <div class="form-item">
+                                <label for="singup-input-repeat-email">Confirm Email</label>
+                                <input
+                                type="text"
+                                name="repeat-email"
+                                id="singup-input-repeat-email"
+                                class="login-input-element"
+                                placeholder="messiselomeressi@traelacopa.com"
+                                required>
+                                <p id="repeat-email-invalid-message" class="invalid-message"></p>
+                            </div>
+                            <div class="form-item">
+                                <label for="singup-input-password">Password</label>
+                                <input
+                                type="password"
+                                name="password"
+                                id="singup-input-password"
+                                class="login-input-element"
+                                placeholder="**********"
+                                required>
+                                <p id="password-invalid-message" class="invalid-message"></p>
+                            </div>
+                            <div class="form-item">
+                                <label for="singup-input-repeat-password">Confirm Password</label>
+                                <input
+                                type="password"
+                                name="repeat-password"
+                                id="singup-input-repeat-password"
+                                class="login-input-element"
+                                placeholder="**********"
+                                required>
+                                <p id="repeat-password-invalid-message" class="invalid-message"></p>
                             </div>
                         </div>
                         <div class="singup-element login-buttons-div">
