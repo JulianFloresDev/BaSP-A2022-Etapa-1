@@ -83,8 +83,8 @@ window.onload = function () {
 
     function inputInvalid(input, alertParagraf, alertError) {
         input.classList.add('invalid-input');
-        alertParagraf.innerText = alertError;
         alertParagraf.classList.add('active');
+        alertParagraf.innerText = alertError;
     }
 
     function lengthValid(input) {
@@ -288,45 +288,33 @@ window.onload = function () {
     }
     inputPasswordConfirm.onblur = function () {
         if (inputPasswordConfirm.value != inputPassword.value) {
-            inputInvalid(inputPasswordConfirm, inputPasswordConfirm.nextElementSibling, errorAlertText.general.repeat)
+            inputInvalid(inputPasswordConfirm, inputPasswordConfirm.nextElementSibling, errorAlertText.general.repeat);
         }
         //* Length validation
         lengthValid(inputPasswordConfirm);
     }
 
     function alertResultsOnCreateClick() {
+        var finalMessageAlert = messageToAddInputsValues;
         loginInputElements.forEach(function verifyInputs(element) {
+            //* Empy validation & apply invalid condition
             if (element.value.length == 0) {
-                console.log('testing inputs');
                 inputInvalid(element, element.nextElementSibling, errorAlertText.general.required);
             }
-        });
-        var fieldsWithInvalidInput = document.querySelectorAll('.invalid-input');
-        var finalMessageAlert = messageToAddInputsValues.concat(
-            'Name:  ', '\t ', inputName.value.toString(), '\n',
-            'Last Name:  ', '\t ', inputLastName.value.toString(), '\n',
-            'D.N.I:  ', '\t ', inputDNI.value.toString(), '\n',
-            'Birthdate:  ', '\t ', inputBirthdate.value.toString(), '\n',
-            'Phone:  ', '\t ', inputPhone.value.toString(), '\n',
-            'Address:  ', '\t ', inputAddress.value.toString(), '\n',
-            'Location:  ', '\t ', inputLocation.value.toString(), '\n',
-            'Postal Code:  ', '\t ', inputPostalCode.value.toString(), '\n',
-            'Email:  ', '\t ', inputEmail.value.toString(), '\n',
-            'Confirmation Email:  ', '\t ', inputEmailConfirm.value.toString(), '\n',
-            'Password:  ', '\t ', inputPassword.value.toString(), '\n',
-            'Confirmation Password:  ', '\t ', inputPasswordConfirm.value.toString(), '\n\n',
-            'Invalid Inputs: ', '\n'
-        );
-        // function addInvalidFieldToFinalMessage(element) {
+            //* Type of message validation
+            if (element.classList.contains('invalid-input')) {
+                finalMessageAlert = finalMessageAlert.concat(
+                    element.name,
+                    '\t',
+                    element.value.toString(),
+                    '\t',
+                    ' Invalid Input',
+                    '\n'
+                );
+            } else {
+                finalMessageAlert = finalMessageAlert.concat(element.name, '\t', element.value.toString(), '\n');
+            }
 
-        // }
-
-        fieldsWithInvalidInput.forEach(function addInvalidFieldToFinalMessage(element) {
-            finalMessageAlert = finalMessageAlert.concat(
-                '\t ',
-                element.name.toString(),
-                '\n'
-            );
         });
         alert(finalMessageAlert);
     }
