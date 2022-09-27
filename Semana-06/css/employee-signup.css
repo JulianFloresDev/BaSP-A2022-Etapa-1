@@ -1,4 +1,4 @@
-/*! Static Styles for Sing Up Page. */
+/*! Static Styles for sign Up Page. */
 main {
     flex-direction: row;
     justify-content: center;
@@ -7,24 +7,24 @@ main {
     padding: 50px;
 }
 
-.employee-singup-container {
+.employee-signup-container {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     width: 650px;
     gap: 10px;
 
-    background-image: url('../assets/img/singup-background-logo.svg');
+    background-image: url('../assets/img/signup-background-logo.svg');
     background-size: contain;
     background-position: center center;
     background-repeat: no-repeat;
 }
 
-.employee-singup-container>.singup-element {
+.employee-signup-container>.signup-element {
     flex: 1 0 100%;
 }
 
-.employee-singup-container .principal-title {
+.employee-signup-container .principal-title {
     margin-bottom: 70px;
     padding-left: 54px;
     text-transform: uppercase;
@@ -36,7 +36,7 @@ main {
     color: #41426F;
 }
 
-.singup-element.second-title-div .second-title {
+.signup-element.second-title-div .second-title {
     width: fit-content;
     font-family: 'Roboto';
     font-style: normal;

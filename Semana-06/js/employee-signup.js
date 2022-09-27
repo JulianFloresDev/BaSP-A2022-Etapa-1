@@ -6,20 +6,21 @@ window.onload = function () {
      */
     var emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
     var loginInputElements = document.querySelectorAll('.login-input-element'),
-        inputName = document.querySelector('#singup-input-name'),
-        inputLastName = document.querySelector('#singup-input-lastname'),
-        inputDNI = document.querySelector('#singup-input-DNI'),
-        inputBirthdate = document.querySelector('#singup-input-birthdate'),
-        inputPhone = document.querySelector('#singup-input-phone'),
-        inputAddress = document.querySelector('#singup-input-address'),
-        inputLocation = document.querySelector('#singup-input-location'),
-        inputPostalCode = document.querySelector('#singup-input-postal'),
-        inputEmail = document.querySelector('#singup-input-email'),
-        inputEmailConfirm = document.querySelector('#singup-input-repeat-email'),
-        inputPassword = document.querySelector('#singup-input-password'),
-        inputPasswordConfirm = document.querySelector('#singup-input-repeat-password');
+        inputName = document.querySelector('#signup-input-name'),
+        inputLastName = document.querySelector('#signup-input-lastname'),
+        inputDNI = document.querySelector('#signup-input-DNI'),
+        inputBirthdate = document.querySelector('#signup-input-birthdate'),
+        inputPhone = document.querySelector('#signup-input-phone'),
+        inputAddress = document.querySelector('#signup-input-address'),
+        inputLocation = document.querySelector('#signup-input-location'),
+        inputPostalCode = document.querySelector('#signup-input-postal'),
+        inputEmail = document.querySelector('#signup-input-email'),
+        inputEmailConfirm = document.querySelector('#signup-input-repeat-email'),
+        inputPassword = document.querySelector('#signup-input-password'),
+        inputPasswordConfirm = document.querySelector('#signup-input-repeat-password');
 
-    var loginBtn =document.querySelector('#login-btn');
+    var loginBtn = document.querySelector('#login-btn');
+    var messageToAddInputsValues = 'Thanks for register!! You\'r doing the rigth thing for your team!\n\n';
 
     var errorAlertText = {
         general: {
@@ -53,7 +54,7 @@ window.onload = function () {
         },
         location: {
             type: 'This field must to contain a valid Location *',
-            length: 'This field must contain at least 4 characters *',
+            length: 'This field must contain at least 4 length *',
         },
         postal: {
             type: 'This field must be numbers only *',
@@ -64,10 +65,13 @@ window.onload = function () {
             length: 'This field may contain from 3 characters *',
         },
         password: {
-            type: 'This field can contain letters and numbers only *',
-            length: 'This field can contain from 8 to 25 characters *'
+            type: 'This field can contain letter and number only *',
+            length: 'This field must be from 8 to 25 length  *'
         }
     };
+    var lettersRegex = 'abcdefghijkmnlopqrstuvwxyzABCDEFGHIJKMNLOPQRSTUVWXYZ',
+        numbersRegex = '0123456789',
+        alfanumericRegex = lettersRegex.concat(numbersRegex);
     /**
      *? Functions to manipulate styles:
      */
@@ -91,7 +95,7 @@ window.onload = function () {
 
     function spacesValid(input) {
         if (input.value.includes(' ')) {
-            inputInvalid(input, input.nextElementSibling, errorAlertText.general.required);
+            inputInvalid(input, input.nextElementSibling, errorAlertText.general.spaces);
         }
     }
 
@@ -105,8 +109,7 @@ window.onload = function () {
     });
     //! Name Validation
     inputName.onblur = function () {
-        var name = inputName.name;
-        var regex = 'abcdefghijkmnlopqrstuvwxyzABCDEFGHIJKMNLOPQRSTUVWXYZ';
+        var regex = lettersRegex;
         //* Spaces validation
         spacesValid(inputName);
         if ((inputName.value.length > 0 && inputName.value.length < 4) || inputName.value.length > 20) {
@@ -125,16 +128,14 @@ window.onload = function () {
     }
     //! Last Name Validation
     inputLastName.onblur = function () {
-        var name = inputLastName.name;
-        var regex = 'abcdefghijkmnlopqrstuvwxyzABCDEFGHIJKMNLOPQRSTUVWXYZ';
-        //* Spaces validation
-        spacesValid(inputLastName);
+        var regex = lettersRegex;
         if ((inputLastName.value.length > 0 && inputLastName.value.length < 4) || inputLastName.value.length > 20) {
             inputInvalid(inputLastName, inputLastName.nextElementSibling, errorAlertText.name.length);
         } else {
             //* Type validation
             for (i = 0; i < inputLastName.value.length; i++) {
-                if (regex.indexOf(inputLastName.value[i]) == -1) {
+                //* Spaces alowed in second logical expresion
+                if (regex.indexOf(inputLastName.value[i]) == -1 && inputLastName.value[i] != ' ') {
                     inputInvalid(inputLastName, inputLastName.nextElementSibling, errorAlertText.name.type);
                     break
                 }
@@ -145,13 +146,13 @@ window.onload = function () {
     }
     //! DNI Validation
     inputDNI.onblur = function () {
-        var numbers = '1234567890';
+        var regex = numbersRegex;
         if (inputDNI.value.length > 0 && inputDNI.value.length <= 7) {
             inputInvalid(inputDNI, inputDNI.nextElementSibling, errorAlertText.DNI.length);
         } else {
             //* Type Valdiation
             for (i = 0; i < inputDNI.value.length; i++) {
-                if (numbers.indexOf(inputDNI.value[i]) == -1) {
+                if (regex.indexOf(inputDNI.value[i]) == -1) {
                     inputInvalid(inputDNI, inputDNI.nextElementSibling, errorAlertText.DNI.type);
                     break
                 }
@@ -174,13 +175,13 @@ window.onload = function () {
     }
     //! Phone Validation
     inputPhone.onblur = function () {
-        var numbers = '0123456789';
+        var regex = numbersRegex;
         if ((inputPhone.value.length > 0 && inputPhone.value.length < 10) || inputPhone.value.length > 10) {
             inputInvalid(inputPhone, inputPhone.nextElementSibling, errorAlertText.phone.length);
         } else {
             //* Type Valdiation
             for (i = 0; i < inputPhone.value.length; i++) {
-                if (numbers.indexOf(inputPhone.value[i]) == -1) {
+                if (regex.indexOf(inputPhone.value[i]) == -1) {
                     inputInvalid(inputPhone, inputPhone.nextElementSibling, errorAlertText.phone.type);
                     break
                 }
@@ -191,8 +192,7 @@ window.onload = function () {
     }
     //! Address Validation
     inputAddress.onblur = function () {
-        var numbers = '0123456789';
-        var letters = 'abcdefghijkmnlopqrstuvwxyzABCDEFGHIJKMNLOPQRSTUVWXYZ';
+        var regex = alfanumericRegex;
         //* Space between validation
         if (!inputAddress.value.includes(' ')) {
             inputInvalid(inputAddress, inputAddress.nextElementSibling, errorAlertText.address.type);
@@ -201,6 +201,13 @@ window.onload = function () {
             //* Length validation two
             if (inputAddress.value.length > 0 && inputAddress.value.length < 4) {
                 inputInvalid(inputAddress, inputAddress.nextElementSibling, errorAlertText.address.type);
+            } else {
+                //* Type validation
+                for (i = 0; i < inputAddress; i++) {
+                    if (regex.indexOf(inputAddress[i]) == -1) {
+                        inputInvalid(inputAddress, inputAddress.nextElementSibling, errorAlertText.address.type);
+                    }
+                }
             }
         }
         //* Length Validation
@@ -208,13 +215,15 @@ window.onload = function () {
     }
     //! City Validation
     inputLocation.onblur = function () {
-        var regex = '0123456789abcdefghijkmnlopqrstuvwxyzABCDEFGHIJKMNLOPQRSTUVWXYZ';
-        if (inputLocation.value > 0 && inputLocation.value <= 3) {
+        var regex = alfanumericRegex;
+        //* Length validation two
+        if (inputLocation.value.length > 0 && inputLocation.value.length <= 3) {
             inputInvalid(inputLocation, inputLocation.nextElementSibling, errorAlertText.location.length);
         } else {
             //* Type validation
             for (i = 0; i < inputLocation.value.length; i++) {
-                if (regex.indexOf(inputLocation.value[i]) == -1) {
+                //* Spaces alowed in second logical expresion
+                if (regex.indexOf(inputLocation.value[i]) == -1 && inputLocation.value[i] != ' ') {
                     inputInvalid(inputLocation, inputLocation.nextElementSibling, errorAlertText.location.type);
                 }
             }
@@ -224,10 +233,19 @@ window.onload = function () {
     }
     //! Postal Code Valdiation
     inputPostalCode.onblur = function () {
-        if (inputPostalCode.value > 0 && (inputPostalCode.value < 4 || inputPostalCode.value > 5)) {
+        var regex = numbersRegex;
+        //* Length validation two
+        if (inputPostalCode.value.length > 0 && (inputPostalCode.value.length < 4 || inputPostalCode.value.length > 5)) {
             inputInvalid(inputPostalCode, inputPostalCode.nextElementSibling, errorAlertText.postal.length);
+            console.log('length validation 1');
         } else {
             //* Type validation
+            for (i = 0; i < inputPostalCode.value.length; i++) {
+                if (regex.indexOf(inputPostalCode.value[i]) == -1) {
+                    inputInvalid(inputPostalCode, inputPostalCode.nextElementSibling, errorAlertText.postal.type);
+                    console.log('type validation');
+                }
+            }
         }
         //* Length validation
         lengthValid(inputPostalCode);
@@ -235,6 +253,9 @@ window.onload = function () {
     }
     //! Email Valdiation
     inputEmail.onblur = function () {
+        //* Spaces between validation
+        spacesValid(inputEmail);
+        //* Type validation
         if (!emailExpression.test(inputEmail.value)) {
             inputInvalid(inputEmail, inputEmail.nextElementSibling, errorAlertText.email.type);
         }
@@ -242,32 +263,73 @@ window.onload = function () {
         lengthValid(inputEmail);
     }
     inputEmailConfirm.onblur = function () {
-        if (inputEmailConfirm != inputEmail) {
+        if (inputEmailConfirm.value != inputEmail.value) {
             inputInvalid(inputEmailConfirm, inputEmailConfirm.nextElementSibling, errorAlertText.general.repeat);
         }
         //* Length validation
         lengthValid(inputEmailConfirm);
     }
     inputPassword.onblur = function () {
+        var regex = alfanumericRegex;
+        //* Spaces between validation
+        spacesValid(inputPassword)
         if (inputPassword.value.length < 8 || inputPassword.value.length > 25) {
             inputInvalid(inputPassword, inputPassword.nextElementSibling, errorAlertText.password.length);
-        } else if (inputPassword.value.indexOf(' ') != -1) {
-            inputInvalid(inputPassword, inputPassword.nextElementSibling, errorAlertText.password.type);
+        } else {
+            //* Type Validation
+            for (i = 0; i < inputPassword.value.length; i++) {
+                if (regex.indexOf(inputPassword.value[i]) == -1) {
+                    inputInvalid(inputPassword, inputPassword.nextElementSibling, errorAlertText.password.type);
+                }
+            }
         }
         //* Length validation
         lengthValid(inputPassword);
     }
     inputPasswordConfirm.onblur = function () {
-        if (inputPasswordConfirm != inputPassword) {
+        if (inputPasswordConfirm.value != inputPassword.value) {
             inputInvalid(inputPasswordConfirm, inputPasswordConfirm.nextElementSibling, errorAlertText.general.repeat)
         }
         //* Length validation
         lengthValid(inputPasswordConfirm);
     }
 
-    function terminarMañanaFunction(){
-        alert('Terminar Mañana rey, hoy no da');
+    function alertResultsOnCreateClick() {
+        loginInputElements.forEach(function verifyInputs(element) {
+            if (element.value.length == 0) {
+                console.log('testing inputs');
+                inputInvalid(element, element.nextElementSibling, errorAlertText.general.required);
+            }
+        });
+        var fieldsWithInvalidInput = document.querySelectorAll('.invalid-input');
+        var finalMessageAlert = messageToAddInputsValues.concat(
+            'Name:  ', '\t ', inputName.value.toString(), '\n',
+            'Last Name:  ', '\t ', inputLastName.value.toString(), '\n',
+            'D.N.I:  ', '\t ', inputDNI.value.toString(), '\n',
+            'Birthdate:  ', '\t ', inputBirthdate.value.toString(), '\n',
+            'Phone:  ', '\t ', inputPhone.value.toString(), '\n',
+            'Address:  ', '\t ', inputAddress.value.toString(), '\n',
+            'Location:  ', '\t ', inputLocation.value.toString(), '\n',
+            'Postal Code:  ', '\t ', inputPostalCode.value.toString(), '\n',
+            'Email:  ', '\t ', inputEmail.value.toString(), '\n',
+            'Confirmation Email:  ', '\t ', inputEmailConfirm.value.toString(), '\n',
+            'Password:  ', '\t ', inputPassword.value.toString(), '\n',
+            'Confirmation Password:  ', '\t ', inputPasswordConfirm.value.toString(), '\n\n',
+            'Invalid Inputs: ', '\n'
+        );
+        // function addInvalidFieldToFinalMessage(element) {
+
+        // }
+
+        fieldsWithInvalidInput.forEach(function addInvalidFieldToFinalMessage(element) {
+            finalMessageAlert = finalMessageAlert.concat(
+                '\t ',
+                element.name.toString(),
+                '\n'
+            );
+        });
+        alert(finalMessageAlert);
     }
-    loginBtn.addEventListener('click', terminarMañanaFunction);
+    loginBtn.addEventListener('click', alertResultsOnCreateClick);
 }
 console.log("Carga primero, antes de cargar la página");
