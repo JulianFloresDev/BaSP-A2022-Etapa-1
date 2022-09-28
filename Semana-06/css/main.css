@@ -256,6 +256,32 @@ main section.form form .form-row textarea {
     resize: none;
 }
 
+/*! Styles to JS interactions */
+#form-landing-name.invalid-input,
+#form-landing-email.invalid-input,
+#form-landing-message.invalid-input,
+#form-landing-select.invalid-input {
+    border: 1px solid #FF3E1D;
+    color: #FF3E1D;
+}
+
+.invalid-message {
+    display: none;
+    align-self: flex-start;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: -0.3px;
+    color: #FF3E1D;
+    opacity: .8;
+}
+
+.invalid-message.active {
+    display: flex;
+}
+
 select:target,
 select:focus-visible,
 select:focus {

@@ -1,6 +1,4 @@
 window.onload = function () {
-    console.log('Carga después de cargar la página');
-
     /**
      *! Variables:
      */
@@ -320,4 +318,3 @@ window.onload = function () {
     }
     loginBtn.addEventListener('click', alertResultsOnCreateClick);
 }
-console.log("Carga primero, antes de cargar la página");

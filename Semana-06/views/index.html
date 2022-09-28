@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="../css/main.css">
         <link rel="stylesheet" href="../css/footer.css">
         <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/contact.js"></script>
         <title>Trackgenix</title>
     </head>
     <body>
@@ -173,16 +174,16 @@
                             <div class="form-row">
                                 <div class="row-element">
                                     <label for="form-landing-name">Name</label>
-                                    <input type="text" id="form-landing-name">
+                                    <input type="text" name="Name" id="form-landing-name" class="form-element">
                                 </div>
                                 <div class="row-element">
                                     <label for="form-landing-email">Email</label>
-                                    <input type="email" id="form-landing-email">
+                                    <input type="email" name="Email" id="form-landing-email" class="form-element">
                                 </div>
                             </div>
                             <div class="form-row">
                                 <label for="form-landing-select">Contact Area:</label>
-                                <select name="form-landing-select" id="form-landing-select">
+                                <select name="Contact Area" id="form-landing-select" class="form-element">
                                     <option value="Options" hidden selected>Options</option>
                                     <option value="System">System</option>
                                     <option value="Business">Business</option>
@@ -192,13 +193,17 @@
                             <div class="form-row">
                                 <label for="form-landing-message">Message</label>
                                 <textarea
-                                name="form-landing-textarea"
-                                id="form-landing-textarea"
+                                name="Message"
+                                id="form-landing-message"
                                 cols="80"
                                 rows="7"
+                                class="form-element"
                                 placeholder="Enter your message"></textarea>
                             </div>
-                            <input id="form-send-btn" type="submit" value="Send">
+                            <input
+                            id="form-send-btn"
+                            type="submit"
+                            value="Send">
                         </form>
                     </section>
                     <section class="about-us">
