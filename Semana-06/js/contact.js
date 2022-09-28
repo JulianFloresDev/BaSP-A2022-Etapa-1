@@ -15,16 +15,23 @@ window.onload = function () {
 
     function focusInput(input) {
         input.classList.remove('invalid-input');
-        errorP.classList.remove('active');
-        errorP.innerText = '';
+        if (input.nextElementSibling != null) {
+            var errorP = input.nextElementSibling;
+            errorP.parentNode.removeChild(errorP);
+            console.log(errorP);
+        }
     }
 
     function inputInvalid(input, alertMessage) {
         input.classList.add('invalid-input');
-        var errorP = document.createElement('p');
-        errorP.classList.add('invalid-message', 'active');
-        errorP.innerHTML = alertMessage;
-        input.insertAdjacentElement('afterend', errorP);
+        if (input.nextElementSibling != null) {
+            input.nextElementSibling.innerHTML = alertMessage;
+        } else{
+            var errorP = document.createElement('p');
+            errorP.classList.add('invalid-message', 'active');
+            errorP.innerHTML = alertMessage;
+            input.insertAdjacentElement('afterend', errorP);
+        }
     }
 
     function lengthValid(input) {
@@ -75,6 +82,7 @@ window.onload = function () {
                     }
                 }
             }
+            lengthValid(element);
         }
         element.onfocus = function () {
             focusInput(element);
