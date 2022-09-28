@@ -12,10 +12,11 @@ window.onload = function () {
         alfanumericRegex = lettersRegex.concat(numbersRegex),
         emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
-    var finalMessageAlert = '';
 
     function focusInput(input) {
         input.classList.remove('invalid-input');
+        errorP.classList.remove('active');
+        errorP.innerText = '';
     }
 
     function inputInvalid(input, alertMessage) {
@@ -82,7 +83,7 @@ window.onload = function () {
 
     sendBtn.addEventListener('click', function (e) {
         e.preventDefault();
-
+        var finalMessageAlert = '';
         formElements.forEach(function (element) {
             //* Empy validation & apply invalid condition
             lengthValid(element);
