@@ -235,11 +235,13 @@ window.onload = function () {
         //* Length validation two
         if (inputPostalCode.value.length > 0 && (inputPostalCode.value.length < 4 || inputPostalCode.value.length > 5)) {
             inputInvalid(inputPostalCode, inputPostalCode.nextElementSibling, errorAlertText.postal.length);
+            console.log('length validation 1');
         } else {
             //* Type validation
             for (i = 0; i < inputPostalCode.value.length; i++) {
                 if (regex.indexOf(inputPostalCode.value[i]) == -1) {
                     inputInvalid(inputPostalCode, inputPostalCode.nextElementSibling, errorAlertText.postal.type);
+                    console.log('type validation');
                 }
             }
         }
@@ -290,6 +292,50 @@ window.onload = function () {
         lengthValid(inputPasswordConfirm);
     }
 
+    function fetchToDataBase(allInputs) {
+        var queryParams = '?';
+        allInputs.forEach(function (input, index) {
+            //* Save each value input in localStorage.
+            localStorage.setItem(input.name, input.value);
+            //? Concat each value to queryParams
+            if (index == allInputs.length - 1) {
+                //* If is the last element dont add '&'.
+                queryParams.concat(input.name, '=', input.value);
+            } else {
+                queryParams.concat(input.name, '=', input.value, '&');
+            }
+        });
+        console.log(queryParams);
+        // fetch('https://basp-m2022-api-rest-server.herokuapp.com/login?email=' + queryParams)
+        //     .then(function (response) {
+        //         console.log(response);
+        //         return response.json()
+        //     })
+        //     .then(function (resp) {
+        //         localStorage.setItem('request', resp.data);
+        //         if (resp.success) {
+        //             var message = 'Login successful!';
+        //         } else {
+        //             var message = 'Error!';
+        //         }
+        //         alert(message + '\n' + resp.msg);
+        //     })
+        //     .catch(function (error) {
+        //         alert(error);
+        //     });
+    }
+
+    function finalVerificationToSendData () {
+        var arrOfInputElements = Array.from(loginInputElements);
+        console.log(arrOfInputElements)
+        if(arrOfInputElements.some(function (input){input.classList.contains('invalid-input')})){
+            console.log('invalids inputs');
+        } else{
+            fetchToDataBase(arrOfInputElements);
+        }
+    }
+
+    //? Final test and show data in alert function
     function alertResultsOnCreateClick() {
         var finalMessageAlert = messageToAddInputsValues;
         loginInputElements.forEach(function verifyInputs(element) {
@@ -312,6 +358,7 @@ window.onload = function () {
             }
 
         });
+        finalVerificationToSendData()
         alert(finalMessageAlert);
     }
     loginBtn.addEventListener('click', alertResultsOnCreateClick);

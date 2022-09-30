@@ -1,4 +1,6 @@
 window.onload = function () {
+    console.log('Carga después de cargar la página');
+
     /**
      *! Variables:
      */
@@ -52,7 +54,7 @@ window.onload = function () {
 
     inputPassword.onblur = function () {
         if (inputPassword.value.length == 0) {
-        //* Valid length checking
+            //* Valid length checking
             inputInvalid(inputPassword, inputPassword.nextElementSibling, alertErrorText.required);
         } else if (inputPassword.value.length < 8 || inputPassword.value.length > 25) {
             inputInvalid(inputPassword, inputPassword.nextElementSibling, alertErrorText.passwordValid);
@@ -64,27 +66,66 @@ window.onload = function () {
         }
     }
 
+    //* Set items to form
+    if(localStorage.hasOwnProperty('email') && localStorage.hasOwnProperty('password')){
+        inputEmail.value = localStorage.getItem('email');
+        inputPassword.value = localStorage.getItem('password');
+    } else{
+        console.log('not found');
+    }
+
+    function fetchToDataBase(email, password) {
+        localStorage.setItem('email', email);
+        localStorage.setItem('password', password);
+        fetch('https://basp-m2022-api-rest-server.herokuapp.com/login?email=' + email + '&password=' + password)
+            .then(function (response){
+                if(response.status >= 400){
+                    throw new Error(response.statusText);
+                }
+            })
+            .then(function (response) {
+                console.log(response);
+                return response.json()
+            })
+            .then(function (resp) {
+                localStorage.setItem('request', resp.data);
+                if (resp.success) {
+                    var message = 'Login successful!';
+                } else {
+                    var message = 'Error!';
+                }
+                alert(message + '\n' + resp.msg);
+            })
+            .catch(function (error) {
+                alert('Request results on ', error);
+            })
+    }
+
     function formValidate() {
-        loginInputElements.forEach(function(element){
-            if(element.value.length == 0){
+        loginInputElements.forEach(function (element) {
+            if (element.value.length == 0) {
                 inputInvalid(element, element.nextElementSibling, alertErrorText.required);
             }
         });
         invalidInputs = document.querySelectorAll('.invalid-input') || [];
 
         if (invalidInputs.length == 0) {
-            return alert('Thanks for login up our app.\n\nUser Email: ' + inputEmail.value + '\nUser Password: '
-                + inputPassword.value + '\n\nTrackgenix.');
+            //* After passing all validations, run the function to send data to the server.
+            fetchToDataBase(inputEmail.value, inputPassword.value);
+            //* Then show data value on alert.
+            return alert('Thanks for login up our app.\n\nUser Email: ' + inputEmail.value + '\nUser Password: ' +
+                inputPassword.value + '\n\nTrackgenix.');
         } else if (invalidInputs.length == 1) {
-            return alert('You must to check some values.\n\nUser Email: ' + inputEmail.value + '\nUser Password: '
-                + inputPassword.value + '\n\n' + 'Invalid Input: ' + invalidInputs[0].placeholder + '\n\nTrackgenix.');
+            return alert('You must to check some values.\n\nUser Email: ' + inputEmail.value + '\nUser Password: ' +
+                inputPassword.value + '\n\n' + 'Invalid Input: ' + invalidInputs[0].placeholder + '\n\nTrackgenix.');
         } else if (invalidInputs.length == 2) {
-            return alert('Both values are invalid.\n\nUser Email: ' + inputEmail.value + '\nUser Password: '
-                + inputPassword.value + '\n\n' + 'Invalid Inputs: ' + '\n' + invalidInputs[0].placeholder + '\n'
-                    + invalidInputs[1].placeholder + '\n\nTrackgenix.');
+            return alert('Both values are invalid.\n\nUser Email: ' + inputEmail.value + '\nUser Password: ' +
+                inputPassword.value + '\n\n' + 'Invalid Inputs: ' + '\n' + invalidInputs[0].placeholder + '\n' +
+                invalidInputs[1].placeholder + '\n\nTrackgenix.');
         }
     }
 
     loginBtn.addEventListener('click', formValidate);
 
 }
+console.log("Carga primero, antes de cargar la página");

@@ -1,0 +1,148 @@
+/*! Static Styles for sign Up Page. */
+main {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 50px;
+}
+
+.employee-signup-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 650px;
+    gap: 10px;
+
+    background-image: url('../assets/img/signup-background-logo.svg');
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.employee-signup-container>.signup-element {
+    flex: 1 0 100%;
+}
+
+.employee-signup-container .principal-title {
+    margin-bottom: 70px;
+    padding-left: 54px;
+    text-transform: uppercase;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 47px;
+    color: #41426F;
+}
+
+.signup-element.second-title-div .second-title {
+    width: fit-content;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 40px;
+    line-height: 47px;
+    color: #41426F;
+    border-bottom: 3px solid #41426F;
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+}
+
+.form-container .form-item {
+    flex: 1 0 45%;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-container .form-item .login-input-element {
+    padding: 10px 12px;
+    background: transparent;
+    border: 1px solid #373867;
+    border-radius: 4px;
+}
+
+.form-container .form-item,
+.form-container .form-item .login-input-element{
+
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    color: #373867;
+}
+
+.login-buttons-div {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.login-buttons-div .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 64px;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    color: #FFFFFF;
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.login-buttons-div .back-btn {
+    background: #49A37B;
+}
+
+.login-buttons-div .login-btn {
+    background: #41426F;
+}
+
+.login-buttons-div .btn:hover {
+    color: #41426F;
+    background: #FFFFFF;
+}
+input:focus-visible,
+input:focus {
+    border: 1px solid #41426F;
+
+}
+/*!  Dinamics Styles to manipulate with JS. */
+.invalid-input {
+    border: 1px solid #FF3E1D !important;
+    color: #FF3E1D !important;
+}
+
+.invalid-message {
+    display: none;
+    align-self: flex-start;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 20px;
+    letter-spacing: -0.3px;
+    color: #FF3E1D;
+    opacity: .8;
+}
+
+.invalid-message.active {
+    display: flex;
+}

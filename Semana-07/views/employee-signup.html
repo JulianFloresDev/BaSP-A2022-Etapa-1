@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/03951dd2cf.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/fonts.css">
+        <link rel="stylesheet" href="../css/header.css">
+        <link rel="stylesheet" href="../css/aside.css">
+        <link rel="stylesheet" href="../css/main.css">
+        <link rel="stylesheet" href="../css/footer.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <link rel="stylesheet" href="../css/employee-signup.css">
+        <script src="../js/employee-signup.js"></script>
+    <title>Trackgenix - sign Up</title>
+</head>
+<body>
+    <div class="flex-conteiner">
+        <header>
+            <a href="./index.html">
+                <h1>Trackgenix</h1>
+            </a>
+            <div class="burger-menu">
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+                <span class="menu-line"></span>
+            </div>
+        </header>
+        <div class="main-conteiner">
+            <div class="main-footer-conteiner">
+                <main>
+                    <div class="employee-signup-container">
+                        <h1 class="signup-element principal-title">welcome to trackgrnix!</h1>
+                        <div class="signup-element second-title-div">
+                            <h2 class="second-title">Register Account</h2>
+                        </div>
+                        <div class="signup-element form-container">
+                            <div class="form-item">
+                                <label for="signup-input-name" class="signup-label">Name</label>
+                                <input
+                                type="text"
+                                name="name"
+                                id="signup-input-name"
+                                class="login-input-element"
+                                placeholder="Name"
+                                required
+                                autofocus>
+                                <p id="name-invalid-message" class="invalid-message"></p>
+                            </div>
+                            <div class="form-item">
+                                <label for="signup-input-lastname" class="signup-label">Last Name</label>
+                                <input
+                                type="text"
+                                name="lastName"
+                                id="signup-input-lastname"
+                                class="login-input-element"
+                                placeholder="Last Name"
+                                required
+                                jsMinLength="4"
+                                jsMaxLength="20">
+                                <p id="lastname-invalid-message" class="invalid-message"></p>
+                            </div>
+                            <div class="form-item">
+                                <label for="signup-input-DNI">D.N.I.</label>
+                                <input
+                                type="text"
+                                name="DNI"
+                                id="signup-input-DNI"
+                                class="login-input-element"
+                                placeholder="12345678"
+                                required>
+                                <p id="DNI-invalid-message" class="invalid-message"></p>
+                            </div>
+                            <div class="form-item">
+                                <label for="signup-input-birthdate">Birthdate</label>
+                                <input
+                                type="date"
+                                name="birthdate"
+                                id="signup-input-birthdate"
+                                class="login-input-element"
+                                 placeholder="dd/mm/aaaa"
+                                 required>
+                                <p id="birthdate-invalid-message" class="invalid-message"></p>
+                            </div>
+                            <div class="form-item">
+                                <label for="signup-input-phone">Phone</label>
+                                <input
+                                type="text"
+                                name="phone"
+                                id="signup-input-phone"
+                                class="login-input-element"
+                                placeholder="3417788991"
+                                required>
+                                <p id="phone-invalid-message" class="invalid-message"></p>
+                            </div>
+                            <div class="form-item">
+                                <label for="signup-input-address">Address</label>
+                                <input
+                                type="text"
+                                name="address"
+                                id="signup-input-address"
+                                class="login-input-element"
+                                placeholder="123 False Street"
+                                required>
+                                <p id="address-invalid-message" class="invalid-message"></p>
+                            </div>
+                            <div class="form-item">
+                                <label for="signup-input-location">City</label>
+                                <input
+                                type="text"
+                                name="location"
+                                id="signup-input-location"
+                                class="login-input-element"
+                                placeholder="New York"
+                                required>
+                                <p id="location-invalid-message" class="invalid-message"></p>
+                            </div>
+                            <div class="form-item">
+                                <label for="signup-input-postal">Postal Code</label>
+                                <input
+                                type="text"
+                                name="postal"
+                                id="signup-input-postal"
+                                class="login-input-element"
+                                placeholder="10024"
+                                required>
+                                <p id="postal-invalid-message" class="invalid-message"></p>
+                            </div>
+                            <div class="form-item">
+                                <label for="signup-input-email">Email</label>
+                                <input
+                                type="text"
+                                name="email"
+                                id="signup-input-email"
+                                class="login-input-element"
+                                placeholder="messiselomeressi@traelacopa.com"
+                                required>
+                                <p id="email-invalid-message" class="invalid-message"></p>
+                            </div>
+                            <div class="form-item">
+                                <label for="signup-input-repeat-email">Confirm Email</label>
+                                <input
+                                type="text"
+                                name="repeat-email"
+                                id="signup-input-repeat-email"
+                                class="login-input-element"
+                                placeholder="messiselomeressi@traelacopa.com"
+                                required>
+                                <p id="repeat-email-invalid-message" class="invalid-message"></p>
+                            </div>
+                            <div class="form-item">
+                                <label for="signup-input-password">Password</label>
+                                <input
+                                type="password"
+                                name="password"
+                                id="signup-input-password"
+                                class="login-input-element"
+                                placeholder="**********"
+                                required>
+                                <p id="password-invalid-message" class="invalid-message"></p>
+                            </div>
+                            <div class="form-item">
+                                <label for="signup-input-repeat-password">Confirm Password</label>
+                                <input
+                                type="password"
+                                name="repeat-password"
+                                id="signup-input-repeat-password"
+                                class="login-input-element"
+                                placeholder="**********"
+                                required>
+                                <p id="repeat-password-invalid-message" class="invalid-message"></p>
+                            </div>
+                        </div>
+                        <div class="signup-element login-buttons-div">
+                            <a href="./index.html" id="back-btn" class="btn back-btn">Back</a>
+                            <a id="login-btn" class="btn login-btn">Create</a>
+                        </div>
+                    </div>
+                </main>
+                <footer>
+                    <div class="icon-conteiner">
+                        <a href="https://www.facebook.com" target="_blank">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com" target="_blank">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://www.twitter.com" target="_blank">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                    </div>
+                    <p>&#169GigaTech Software Solutions SA. INC. ALL RIGHTS RESERVED.</p>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

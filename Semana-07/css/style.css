@@ -1,0 +1,131 @@
+/*     Normalize Styles             */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', normal;
+}
+
+a {
+    color: white;
+}
+
+/*     End Normalize                */
+/* _________________________________*/
+.flex-conteiner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    /**              Hero Section             */
+    main section.hero {
+        flex-direction: row;
+    }
+
+    main section.hero .left-conteiner .learn-more-btn {
+        display: flex;
+    }
+
+    main section.hero .right-conteiner {
+        height: 100%;
+    }
+
+    main section.hero .right-conteiner .learn-more-btn {
+        display: none;
+    }
+
+    /**              Why Section             */
+    main section.why {
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+
+    /**              Form Section             */
+    #landing-form {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    main section.form form .form-row:nth-of-type(1) {
+        display: flex;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    main section.form form .form-row .row-element {
+        flex: 1 1 50%;
+    }
+
+    main section.form form .form-row select {
+        margin-bottom: 100px;
+    }
+
+    #form-send-btn {
+        width: 50%;
+        height: 50px;
+        margin-left: 50%;
+    }
+
+    /**              Final Section             */
+    main section.final .column{
+        flex: 1 0 30%;
+    }
+
+    main section.final .column:nth-child(2) {
+        border-top: none;
+        border-bottom: none;
+        border-left: 2px solid #41426F;
+        border-right: 2px solid #41426F;
+    }
+
+    main section.final .column:nth-of-type(3) {
+        border: none;
+    }
+
+    main section.final .column li a {
+        font-weight: 700;
+        font-size: 15px;
+        line-height: 18px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    header .burger-menu {
+        display: none;
+    }
+
+    aside {
+        display: flex;
+    }
+
+    /**              Hero Section             */
+    main section.hero .left-conteiner {
+        flex-basis: 70%;
+    }
+
+    /**              About Section             */
+    main section.about-us .about-p,
+    main section.about-us .flex-item .about-p {
+        font-size: 24px;
+        line-height: 28px;
+    }
+
+    main section.about-us .flex-item .about-img {
+        flex: 1 0 70%;
+        order: 2;
+    }
+
+    /**              Why Section             */
+    main section.why {
+        padding-left: 0%;
+        padding-right: 0%;
+    }
+
+    main section.why .ul-row li {
+        flex-basis: 40%;
+    }
+}
