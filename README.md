@@ -50,4 +50,4 @@ On the other hand we had the need to give shape and structure to the aforementio
 - Style these pages with the components already created, and with new components if needed.
 - Create the corresponding validations so that the form fields are consistent with what is requested.
 
-## _[Week 06:](https://julianfloresdev.github.io/BaSP-A2022-Etapa-1/Semana-07/views/index.html)_ Javascript - Promisses & Fetch
+## _[Week 07:](https://julianfloresdev.github.io/BaSP-A2022-Etapa-1/Semana-07/views/index.html)_ Javascript - Promisses & Fetch

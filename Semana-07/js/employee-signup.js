@@ -95,9 +95,7 @@ window.onload = function () {
         }
     }
 
-    //? Validation of all the fields from the array of all inputs (loginInputElements):
     loginInputElements.forEach(function (input) {
-        //* Remove conditions on element focus.
         input.onfocus = function (e) {
             inputTarget = e.currentTarget;
             focusInput(inputTarget, inputTarget.nextElementSibling);
@@ -106,20 +104,17 @@ window.onload = function () {
     //! Name Validation
     inputName.onblur = function () {
         var regex = lettersRegex;
-        //* Spaces validation
-        spacesValid(inputName);
+        // spacesValid(inputName);
         if ((inputName.value.length > 0 && inputName.value.length < 4) || inputName.value.length > 20) {
             inputInvalid(inputName, inputName.nextElementSibling, errorAlertText.name.length);
         } else {
-            //* Type validation
             for (i = 0; i < inputName.value.length; i++) {
-                if (regex.indexOf(inputName.value[i]) == -1) {
+                if (regex.indexOf(inputName.value[i]) == -1 && inputName.value[i] != ' ') {
                     inputInvalid(inputName, inputName.nextElementSibling, errorAlertText.name.type);
                     break
                 }
             }
         }
-        //* Length validation
         lengthValid(inputName);
     }
     //! Last Name Validation
@@ -128,16 +123,13 @@ window.onload = function () {
         if ((inputLastName.value.length > 0 && inputLastName.value.length < 4) || inputLastName.value.length > 20) {
             inputInvalid(inputLastName, inputLastName.nextElementSibling, errorAlertText.name.length);
         } else {
-            //* Type validation
             for (i = 0; i < inputLastName.value.length; i++) {
-                //* Spaces alowed in second logical expresion
                 if (regex.indexOf(inputLastName.value[i]) == -1 && inputLastName.value[i] != ' ') {
                     inputInvalid(inputLastName, inputLastName.nextElementSibling, errorAlertText.name.type);
                     break
                 }
             }
         }
-        //* Length validation
         lengthValid(inputLastName);
     }
     //! DNI Validation
@@ -146,7 +138,6 @@ window.onload = function () {
         if (inputDNI.value.length > 0 && inputDNI.value.length <= 7) {
             inputInvalid(inputDNI, inputDNI.nextElementSibling, errorAlertText.DNI.length);
         } else {
-            //* Type Valdiation
             for (i = 0; i < inputDNI.value.length; i++) {
                 if (regex.indexOf(inputDNI.value[i]) == -1) {
                     inputInvalid(inputDNI, inputDNI.nextElementSibling, errorAlertText.DNI.type);
@@ -154,19 +145,16 @@ window.onload = function () {
                 }
             }
         }
-        //* Length validation
         lengthValid(inputDNI);
     }
     //! Birthdate Validation
     inputBirthdate.onblur = function () {
-        //* Legal Age validation
         var yearInput = inputBirthdate.value.slice(0, 4);
         var actualDate = new Date();
         var actualYear = actualDate.getFullYear();
         if (actualYear - yearInput < 18) {
             inputInvalid(inputBirthdate, inputBirthdate.nextElementSibling, errorAlertText.birthdate.justForFun)
         }
-        //* Length validation
         lengthValid(inputBirthdate);
     }
     //! Phone Validation
@@ -175,7 +163,6 @@ window.onload = function () {
         if ((inputPhone.value.length > 0 && inputPhone.value.length < 10) || inputPhone.value.length > 10) {
             inputInvalid(inputPhone, inputPhone.nextElementSibling, errorAlertText.phone.length);
         } else {
-            //* Type Valdiation
             for (i = 0; i < inputPhone.value.length; i++) {
                 if (regex.indexOf(inputPhone.value[i]) == -1) {
                     inputInvalid(inputPhone, inputPhone.nextElementSibling, errorAlertText.phone.type);
@@ -183,108 +170,106 @@ window.onload = function () {
                 }
             }
         }
-        //* Length validation
         lengthValid(inputPhone);
     }
     //! Address Validation
     inputAddress.onblur = function () {
         var regex = alfanumericRegex;
-        //* Space between validation
+        var lettersCount = 0;
         if (!inputAddress.value.includes(' ')) {
             inputInvalid(inputAddress, inputAddress.nextElementSibling, errorAlertText.address.type);
         } else {
-            // var indexOfSpace = inputAddress.value.includes(' ');
-            //* Length validation two
             if (inputAddress.value.length > 0 && inputAddress.value.length < 4) {
                 inputInvalid(inputAddress, inputAddress.nextElementSibling, errorAlertText.address.type);
             } else {
-                //* Type validation
-                for (i = 0; i < inputAddress; i++) {
-                    if (regex.indexOf(inputAddress[i]) == -1) {
+                for (i = 0; i < inputAddress.value.length; i++) {
+                    if (regex.indexOf(inputAddress.value[i]) == -1 && inputAddress.value[i] != ' ') {
                         inputInvalid(inputAddress, inputAddress.nextElementSibling, errorAlertText.address.type);
+                        break
                     }
+                    if (lettersRegex.indexOf(inputAddress.value[i]) == -1) {
+                        lettersCount++;
+                    }
+                }
+                if (lettersCount === inputAddress.value.length) {
+                    inputInvalid(inputAddress, inputAddress.nextElementSibling, errorAlertText.address.type);
                 }
             }
         }
-        //* Length Validation
         lengthValid(inputAddress);
     }
     //! City Validation
     inputLocation.onblur = function () {
         var regex = alfanumericRegex;
-        //* Length validation two
+        var lettersCount = 0;
         if (inputLocation.value.length > 0 && inputLocation.value.length <= 3) {
             inputInvalid(inputLocation, inputLocation.nextElementSibling, errorAlertText.location.length);
         } else {
-            //* Type validation
             for (i = 0; i < inputLocation.value.length; i++) {
-                //* Spaces alowed in second logical expresion
                 if (regex.indexOf(inputLocation.value[i]) == -1 && inputLocation.value[i] != ' ') {
                     inputInvalid(inputLocation, inputLocation.nextElementSibling, errorAlertText.location.type);
+                    break
+                }
+                if (lettersRegex.indexOf(inputLocation.value[i]) == -1) {
+                    lettersCount++;
                 }
             }
+            if (lettersCount === inputLocation.value.length) {
+                inputInvalid(inputLocation, inputLocation.nextElementSibling, errorAlertText.location.type);
+            }
+
         }
-        //* Length validation
         lengthValid(inputLocation);
     }
     //! Postal Code Valdiation
     inputPostalCode.onblur = function () {
         var regex = numbersRegex;
-        //* Length validation two
         if (inputPostalCode.value.length > 0 && (inputPostalCode.value.length < 4 || inputPostalCode.value.length > 5)) {
             inputInvalid(inputPostalCode, inputPostalCode.nextElementSibling, errorAlertText.postal.length);
         } else {
-            //* Type validation
             for (i = 0; i < inputPostalCode.value.length; i++) {
                 if (regex.indexOf(inputPostalCode.value[i]) == -1) {
                     inputInvalid(inputPostalCode, inputPostalCode.nextElementSibling, errorAlertText.postal.type);
+                    break
                 }
             }
         }
-        //* Length validation
         lengthValid(inputPostalCode);
 
     }
     //! Email Valdiation
     inputEmail.onblur = function () {
-        //* Spaces between validation
         spacesValid(inputEmail);
-        //* Type validation
         if (!emailExpression.test(inputEmail.value)) {
             inputInvalid(inputEmail, inputEmail.nextElementSibling, errorAlertText.email.type);
         }
-        //* Length validation
         lengthValid(inputEmail);
     }
     inputEmailConfirm.onblur = function () {
         if (inputEmailConfirm.value != inputEmail.value) {
             inputInvalid(inputEmailConfirm, inputEmailConfirm.nextElementSibling, errorAlertText.general.repeat);
         }
-        //* Length validation
         lengthValid(inputEmailConfirm);
     }
     inputPassword.onblur = function () {
         var regex = alfanumericRegex;
-        //* Spaces between validation
         spacesValid(inputPassword)
         if (inputPassword.value.length < 8 || inputPassword.value.length > 25) {
             inputInvalid(inputPassword, inputPassword.nextElementSibling, errorAlertText.password.length);
         } else {
-            //* Type Validation
             for (i = 0; i < inputPassword.value.length; i++) {
                 if (regex.indexOf(inputPassword.value[i]) == -1) {
                     inputInvalid(inputPassword, inputPassword.nextElementSibling, errorAlertText.password.type);
+                    break
                 }
             }
         }
-        //* Length validation
         lengthValid(inputPassword);
     }
     inputPasswordConfirm.onblur = function () {
         if (inputPasswordConfirm.value != inputPassword.value) {
             inputInvalid(inputPasswordConfirm, inputPasswordConfirm.nextElementSibling, errorAlertText.general.repeat);
         }
-        //* Length validation
         lengthValid(inputPasswordConfirm);
     }
 
@@ -295,25 +280,27 @@ window.onload = function () {
             localStorage.setItem(input.name, input.value); //todo sacar TESTING ONLY
             //? Rename input and replace spaces to '%20'
             var inputWithOutSpaces = input.value.replace(' ', '%20');
-            console.log(index);
             //? Concat each value to queryParams
             if (!input.name.includes('confirm')) {
-                if (index != allInputs.length - 2) {
+                if (input.name.match('dob') && index != allInputs.length - 2) {
+                    var dateYear = input.value.substr(0, 4);
+                    var dateMonth = input.value.substr(5, 2);
+                    var dateDay = input.value.substr(8, 2);
+                    var correctDateFormat = dateMonth + '/' + dateDay + '/' + dateYear;
+                    queryParams += input.name + '=' + correctDateFormat + '&';
+                } else if (index != allInputs.length - 2) {
                     queryParams += input.name + '=' + inputWithOutSpaces + '&';
                 } else {
-                    //* If is the last element dont add '&'.
                     queryParams = queryParams.concat(input.name, '=', inputWithOutSpaces);
                 }
             }
 
         });
-        console.log(queryParams);
         fetch('https://basp-m2022-api-rest-server.herokuapp.com/signup' + queryParams)
+            //todo poner un then() primero
             .then(function (response) {
                 if (response.status >= 400) {
-                    console.log(response);
-                    var responsejson = response.json();
-                    throw new Error(responsejson);
+                    throw new Error(response);
                 } else {
                     return response.json()
                 }
@@ -331,14 +318,14 @@ window.onload = function () {
                 localStorage.setItem('email', resp.data.email);
                 localStorage.setItem('password', resp.data.password);
                 alert(resp.msg);
+                localStorage.removeItem('testing');
             })
             .catch(function (error) {
-                console.log(error);
+                // console.log(error);
                 // alert('Request results on ' + error.statusText + '\nPassword or email invalid.');
             });
     }
 
-    //* Set items to form
     if (localStorage.hasOwnProperty('testing')) { //TODO SACAR TESTING ONLY
         inputName.value = localStorage.getItem('name');
         inputLastName.value = localStorage.getItem('lastName');
@@ -355,40 +342,21 @@ window.onload = function () {
     }
 
     function finalVerificationToSendData() {
-        //* In line 6 I get all the inputs, as a node of elements; afterwards I convert it into an array to use later.
         var arrOfInputElements = Array.from(loginInputElements);
         if (!arrOfInputElements.some(function (input) {
-                input.classList.contains('invalid-input')
+                return input.classList.contains('invalid-input')
             })) {
             fetchToDataBase(arrOfInputElements);
+        } else {
+            var errorText = 'There must be a problem in the data you have provided. ' +
+                'We recommend that you check the next fields:\n\n';
+            arrOfInputElements.forEach(function (element) {
+                if (element.classList.contains('invalid-input')) {
+                    errorText += element.name + '\t' + element.value;
+                }
+            });
+            alert(errorText);
         }
     }
-
-    //? Final test and show data in alert function
-    function alertResultsOnCreateClick() {
-        // var finalMessageAlert = messageToAddInputsValues;
-        // loginInputElements.forEach(function verifyInputs(element) {
-        //     //* Empy validation & apply invalid condition
-        //     if (element.value.length == 0) {
-        //         inputInvalid(element, element.nextElementSibling, errorAlertText.general.required);
-        //     }
-        //     //* Type of message validation
-        //     if (element.classList.contains('invalid-input')) {
-        //         finalMessageAlert = finalMessageAlert.concat(
-        //             element.name,
-        //             '\t',
-        //             element.value.toString(),
-        //             '\t',
-        //             ' Invalid Input',
-        //             '\n'
-        //         );
-        //     } else {
-        //         finalMessageAlert = finalMessageAlert.concat(element.name, '\t', element.value.toString(), '\n');
-        //     }
-
-        // });
-        // alert(finalMessageAlert);
-        finalVerificationToSendData()
-    }
-    loginBtn.addEventListener('click', alertResultsOnCreateClick);
+    loginBtn.addEventListener('click', finalVerificationToSendData);
 }

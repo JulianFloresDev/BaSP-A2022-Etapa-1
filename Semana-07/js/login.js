@@ -38,13 +38,11 @@ window.onload = function () {
     }
 
     inputEmail.onblur = function () {
-        //* Valid length checking
         if (inputEmail.value.length == 0) {
             inputInvalid(inputEmail, inputEmail.nextElementSibling, alertErrorText.required);
         } else if (inputEmail.value.length < 3) {
             inputInvalid(inputEmail, inputEmail.nextElementSibling, alertErrorText.emailMin);
         } else {
-            //* Type of value checking
             if (!emailExpression.test(inputEmail.value)) {
                 inputInvalid(inputEmail, inputEmail.nextElementSibling, alertErrorText.emailValid)
             }
@@ -53,12 +51,10 @@ window.onload = function () {
 
     inputPassword.onblur = function () {
         if (inputPassword.value.length == 0) {
-            //* Valid length checking
             inputInvalid(inputPassword, inputPassword.nextElementSibling, alertErrorText.required);
         } else if (inputPassword.value.length < 8 || inputPassword.value.length > 25) {
             inputInvalid(inputPassword, inputPassword.nextElementSibling, alertErrorText.passwordValid);
         } else {
-            //* Type of value checking
             if (inputPassword.value.indexOf(' ') != -1) {
                 inputInvalid(inputPassword, inputPassword.nextElementSibling, alertErrorText.passwordSpaces);
             }
@@ -94,8 +90,9 @@ window.onload = function () {
         invalidInputs = document.querySelectorAll('.invalid-input') || [];
 
         if (invalidInputs.length == 0) {
-            //* After passing all validations, run the function to send data to the server.
             fetchToDataBase(inputEmail, inputPassword);
+        } else{
+            alert('Email or password invalid!')
         }
     }
 
