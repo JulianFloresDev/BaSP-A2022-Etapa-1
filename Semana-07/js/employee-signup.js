@@ -18,8 +18,6 @@ window.onload = function () {
         inputPasswordConfirm = document.querySelector('#signup-input-repeat-password');
 
     var loginBtn = document.querySelector('#login-btn');
-    var messageToAddInputsValues = 'Thanks for register!! You\'r doing the rigth thing for your team!\n\n';
-
     var errorAlertText = {
         general: {
             required: 'This is a required field *',
@@ -235,13 +233,11 @@ window.onload = function () {
         //* Length validation two
         if (inputPostalCode.value.length > 0 && (inputPostalCode.value.length < 4 || inputPostalCode.value.length > 5)) {
             inputInvalid(inputPostalCode, inputPostalCode.nextElementSibling, errorAlertText.postal.length);
-            console.log('length validation 1');
         } else {
             //* Type validation
             for (i = 0; i < inputPostalCode.value.length; i++) {
                 if (regex.indexOf(inputPostalCode.value[i]) == -1) {
                     inputInvalid(inputPostalCode, inputPostalCode.nextElementSibling, errorAlertText.postal.type);
-                    console.log('type validation');
                 }
             }
         }
@@ -294,72 +290,105 @@ window.onload = function () {
 
     function fetchToDataBase(allInputs) {
         var queryParams = '?';
+        localStorage.setItem('testing', 'true'); //todo sacar TESTING ONLY
         allInputs.forEach(function (input, index) {
-            //* Save each value input in localStorage.
-            localStorage.setItem(input.name, input.value);
+            localStorage.setItem(input.name, input.value); //todo sacar TESTING ONLY
+            //? Rename input and replace spaces to '%20'
+            var inputWithOutSpaces = input.value.replace(' ', '%20');
+            console.log(index);
             //? Concat each value to queryParams
-            if (index == allInputs.length - 1) {
-                //* If is the last element dont add '&'.
-                queryParams.concat(input.name, '=', input.value);
-            } else {
-                queryParams.concat(input.name, '=', input.value, '&');
+            if (!input.name.includes('confirm')) {
+                if (index != allInputs.length - 2) {
+                    queryParams += input.name + '=' + inputWithOutSpaces + '&';
+                } else {
+                    //* If is the last element dont add '&'.
+                    queryParams = queryParams.concat(input.name, '=', inputWithOutSpaces);
+                }
             }
+
         });
         console.log(queryParams);
-        // fetch('https://basp-m2022-api-rest-server.herokuapp.com/login?email=' + queryParams)
-        //     .then(function (response) {
-        //         console.log(response);
-        //         return response.json()
-        //     })
-        //     .then(function (resp) {
-        //         localStorage.setItem('request', resp.data);
-        //         if (resp.success) {
-        //             var message = 'Login successful!';
-        //         } else {
-        //             var message = 'Error!';
-        //         }
-        //         alert(message + '\n' + resp.msg);
-        //     })
-        //     .catch(function (error) {
-        //         alert(error);
-        //     });
+        fetch('https://basp-m2022-api-rest-server.herokuapp.com/signup' + queryParams)
+            .then(function (response) {
+                if (response.status >= 400) {
+                    console.log(response);
+                    var responsejson = response.json();
+                    throw new Error(responsejson);
+                } else {
+                    return response.json()
+                }
+            })
+            .then(function (resp) {
+                localStorage.setItem('id', resp.data.id);
+                localStorage.setItem('name', resp.data.name);
+                localStorage.setItem('lastName', resp.data.lastName);
+                localStorage.setItem('dni', resp.data.dni);
+                localStorage.setItem('dob', resp.data.dob);
+                localStorage.setItem('phone', resp.data.phone);
+                localStorage.setItem('address', resp.data.address);
+                localStorage.setItem('city', resp.data.city);
+                localStorage.setItem('zip', resp.data.zip);
+                localStorage.setItem('email', resp.data.email);
+                localStorage.setItem('password', resp.data.password);
+                alert(resp.msg);
+            })
+            .catch(function (error) {
+                console.log(error);
+                // alert('Request results on ' + error.statusText + '\nPassword or email invalid.');
+            });
     }
 
-    function finalVerificationToSendData () {
+    //* Set items to form
+    if (localStorage.hasOwnProperty('testing')) { //TODO SACAR TESTING ONLY
+        inputName.value = localStorage.getItem('name');
+        inputLastName.value = localStorage.getItem('lastName');
+        inputDNI.value = localStorage.getItem('dni');
+        inputBirthdate.value = localStorage.getItem('dob');
+        inputPhone.value = localStorage.getItem('phone');
+        inputAddress.value = localStorage.getItem('address');
+        inputLocation.value = localStorage.getItem('city');
+        inputPostalCode.value = localStorage.getItem('zip');
+        inputEmail.value = localStorage.getItem('email');
+        inputEmailConfirm.value = localStorage.getItem('email');
+        inputPassword.value = localStorage.getItem('password');
+        inputPasswordConfirm.value = localStorage.getItem('password');
+    }
+
+    function finalVerificationToSendData() {
+        //* In line 6 I get all the inputs, as a node of elements; afterwards I convert it into an array to use later.
         var arrOfInputElements = Array.from(loginInputElements);
-        console.log(arrOfInputElements)
-        if(arrOfInputElements.some(function (input){input.classList.contains('invalid-input')})){
-            console.log('invalids inputs');
-        } else{
+        if (!arrOfInputElements.some(function (input) {
+                input.classList.contains('invalid-input')
+            })) {
             fetchToDataBase(arrOfInputElements);
         }
     }
 
     //? Final test and show data in alert function
     function alertResultsOnCreateClick() {
-        var finalMessageAlert = messageToAddInputsValues;
-        loginInputElements.forEach(function verifyInputs(element) {
-            //* Empy validation & apply invalid condition
-            if (element.value.length == 0) {
-                inputInvalid(element, element.nextElementSibling, errorAlertText.general.required);
-            }
-            //* Type of message validation
-            if (element.classList.contains('invalid-input')) {
-                finalMessageAlert = finalMessageAlert.concat(
-                    element.name,
-                    '\t',
-                    element.value.toString(),
-                    '\t',
-                    ' Invalid Input',
-                    '\n'
-                );
-            } else {
-                finalMessageAlert = finalMessageAlert.concat(element.name, '\t', element.value.toString(), '\n');
-            }
+        // var finalMessageAlert = messageToAddInputsValues;
+        // loginInputElements.forEach(function verifyInputs(element) {
+        //     //* Empy validation & apply invalid condition
+        //     if (element.value.length == 0) {
+        //         inputInvalid(element, element.nextElementSibling, errorAlertText.general.required);
+        //     }
+        //     //* Type of message validation
+        //     if (element.classList.contains('invalid-input')) {
+        //         finalMessageAlert = finalMessageAlert.concat(
+        //             element.name,
+        //             '\t',
+        //             element.value.toString(),
+        //             '\t',
+        //             ' Invalid Input',
+        //             '\n'
+        //         );
+        //     } else {
+        //         finalMessageAlert = finalMessageAlert.concat(element.name, '\t', element.value.toString(), '\n');
+        //     }
 
-        });
+        // });
+        // alert(finalMessageAlert);
         finalVerificationToSendData()
-        alert(finalMessageAlert);
     }
     loginBtn.addEventListener('click', alertResultsOnCreateClick);
 }
