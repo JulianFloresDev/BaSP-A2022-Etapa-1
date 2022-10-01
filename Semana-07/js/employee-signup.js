@@ -275,14 +275,13 @@ window.onload = function () {
 
     function fetchToDataBase(allInputs) {
         var queryParams = '?';
-        localStorage.setItem('testing', 'true'); //todo sacar TESTING ONLY
         allInputs.forEach(function (input, index) {
-            localStorage.setItem(input.name, input.value); //todo sacar TESTING ONLY
             //? Rename input and replace spaces to '%20'
             var inputWithOutSpaces = input.value.replace(' ', '%20');
             //? Concat each value to queryParams
             if (!input.name.includes('confirm')) {
                 if (input.name.match('dob') && index != allInputs.length - 2) {
+                    console.log(input.value);
                     var dateYear = input.value.substr(0, 4);
                     var dateMonth = input.value.substr(5, 2);
                     var dateDay = input.value.substr(8, 2);
@@ -297,12 +296,14 @@ window.onload = function () {
 
         });
         fetch('https://basp-m2022-api-rest-server.herokuapp.com/signup' + queryParams)
-            //todo poner un then() primero
             .then(function (response) {
-                if (response.status >= 400) {
-                    throw new Error(response);
+                return response.json()
+            })
+            .then(function (response) {
+                if (response.success) {
+                    return response
                 } else {
-                    return response.json()
+                    throw response
                 }
             })
             .then(function (resp) {
@@ -318,28 +319,30 @@ window.onload = function () {
                 localStorage.setItem('email', resp.data.email);
                 localStorage.setItem('password', resp.data.password);
                 alert(resp.msg);
-                localStorage.removeItem('testing');
             })
             .catch(function (error) {
-                // console.log(error);
-                // alert('Request results on ' + error.statusText + '\nPassword or email invalid.');
+                var userErrorText = 'There must be a problem in the data you have provided. ' +
+                    'We recommend that you check the next fields:\n\n';
+                error.errors.forEach(function (element) {
+                    userErrorText += element.msg + '\n';
+                })
+                alert(userErrorText);
             });
     }
 
-    if (localStorage.hasOwnProperty('testing')) { //TODO SACAR TESTING ONLY
-        inputName.value = localStorage.getItem('name');
-        inputLastName.value = localStorage.getItem('lastName');
-        inputDNI.value = localStorage.getItem('dni');
-        inputBirthdate.value = localStorage.getItem('dob');
-        inputPhone.value = localStorage.getItem('phone');
-        inputAddress.value = localStorage.getItem('address');
-        inputLocation.value = localStorage.getItem('city');
-        inputPostalCode.value = localStorage.getItem('zip');
-        inputEmail.value = localStorage.getItem('email');
-        inputEmailConfirm.value = localStorage.getItem('email');
-        inputPassword.value = localStorage.getItem('password');
-        inputPasswordConfirm.value = localStorage.getItem('password');
-    }
+    inputName.value = localStorage.getItem('name');
+    inputLastName.value = localStorage.getItem('lastName');
+    inputDNI.value = localStorage.getItem('dni');
+    inputBirthdate.value = localStorage.getItem('dob');
+    inputPhone.value = localStorage.getItem('phone');
+    inputAddress.value = localStorage.getItem('address');
+    inputLocation.value = localStorage.getItem('city');
+    inputPostalCode.value = localStorage.getItem('zip');
+    inputEmail.value = localStorage.getItem('email');
+    inputEmailConfirm.value = localStorage.getItem('email');
+    inputPassword.value = localStorage.getItem('password');
+    inputPasswordConfirm.value = localStorage.getItem('password');
+
 
     function finalVerificationToSendData() {
         var arrOfInputElements = Array.from(loginInputElements);
@@ -352,7 +355,7 @@ window.onload = function () {
                 'We recommend that you check the next fields:\n\n';
             arrOfInputElements.forEach(function (element) {
                 if (element.classList.contains('invalid-input')) {
-                    errorText += element.name + '\t' + element.value;
+                    errorText += element.name + '\t' + element.value + '\n';
                 }
             });
             alert(errorText);

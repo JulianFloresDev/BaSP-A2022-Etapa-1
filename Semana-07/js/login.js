@@ -66,19 +66,23 @@ window.onload = function () {
         queryParams += email.name + '=' + email.value;
         queryParams += '&' + password.name + '=' + password.value;
         fetch('https://basp-m2022-api-rest-server.herokuapp.com/login' + queryParams)
+            .then(function(response){
+                return response.json();
+            })
             .then(function (response) {
-                if (response.status >= 400) {
-                    throw new Error(response);
-                } else {
-                    return response.json();
+                if (response.success == false) {
+                    throw response
+                } else{
+                    return response
                 }
             })
             .then(function (resp) {
                 alert(resp.msg + ' Successfully!!');
             })
             .catch(function (error) {
-                alert('Request results on ' + error.statusText + '\nPassword or email invalid.');
-            })
+                alert(error.msg);
+                // alert('Request results on ' + error.msg + '\nPassword or email invalid.');
+            });
     }
 
     function formValidate() {
