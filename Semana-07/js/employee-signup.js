@@ -17,6 +17,21 @@ window.onload = function () {
         inputPassword = document.querySelector('#signup-input-password'),
         inputPasswordConfirm = document.querySelector('#signup-input-repeat-password');
 
+        //? Set input value
+        inputName.value = localStorage.getItem('name');
+        inputLastName.value = localStorage.getItem('lastName');
+        inputDNI.value = localStorage.getItem('dni');
+        inputBirthdate.value += localStorage.getItem('dob').substring(6, 10) + '-' + localStorage.getItem('dob').substring(0, 2) +
+            '-' + localStorage.getItem('dob').substring(3, 5);
+        inputPhone.value = localStorage.getItem('phone');
+        inputAddress.value = localStorage.getItem('address');
+        inputLocation.value = localStorage.getItem('city');
+        inputPostalCode.value = localStorage.getItem('zip');
+        inputEmail.value = localStorage.getItem('email');
+        inputEmailConfirm.value = localStorage.getItem('email');
+        inputPassword.value = localStorage.getItem('password');
+        inputPasswordConfirm.value = localStorage.getItem('password');
+
     var loginBtn = document.querySelector('#login-btn');
     var errorAlertText = {
         general: {
@@ -281,7 +296,6 @@ window.onload = function () {
             //? Concat each value to queryParams
             if (!input.name.includes('confirm')) {
                 if (input.name.match('dob') && index != allInputs.length - 2) {
-                    console.log(input.value);
                     var dateYear = input.value.substr(0, 4);
                     var dateMonth = input.value.substr(5, 2);
                     var dateDay = input.value.substr(8, 2);
@@ -329,20 +343,6 @@ window.onload = function () {
                 alert(userErrorText);
             });
     }
-
-    inputName.value = localStorage.getItem('name');
-    inputLastName.value = localStorage.getItem('lastName');
-    inputDNI.value = localStorage.getItem('dni');
-    inputBirthdate.value = localStorage.getItem('dob');
-    inputPhone.value = localStorage.getItem('phone');
-    inputAddress.value = localStorage.getItem('address');
-    inputLocation.value = localStorage.getItem('city');
-    inputPostalCode.value = localStorage.getItem('zip');
-    inputEmail.value = localStorage.getItem('email');
-    inputEmailConfirm.value = localStorage.getItem('email');
-    inputPassword.value = localStorage.getItem('password');
-    inputPasswordConfirm.value = localStorage.getItem('password');
-
 
     function finalVerificationToSendData() {
         var arrOfInputElements = Array.from(loginInputElements);

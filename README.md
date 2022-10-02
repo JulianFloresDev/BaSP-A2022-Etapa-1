@@ -51,3 +51,18 @@ On the other hand we had the need to give shape and structure to the aforementio
 - Create the corresponding validations so that the form fields are consistent with what is requested.
 
 ## _[Week 07:](https://julianfloresdev.github.io/BaSP-A2022-Etapa-1/Semana-07/views/index.html)_ Javascript - Promisses & Fetch
+This week we were challenged to request information from an external database through asynchronous methods.
+
+So I implemented to my application the use of 'fetch()' to execute an asynchronous call to the database, and then manipulate the obtained data in order to allow the user to login to the page if he already had a previous user*; or register a new user respecting the registration fields.
+
+I also replaced all the default browser alerts with custom modals.
+
+*Valid username: _rose@radiumrocket.com_
+
+Valid Password: _BaSP2022_
+
+### This week I
+- Create an HTTP Request with _fetch_.
+- Manipulate the returned data with _then_ and _catch_.
+- I forced an error in case of status 400 or higher to force an .exit by the catch.
+- Replace all alerts to customised modals to its page style.

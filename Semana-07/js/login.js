@@ -70,10 +70,10 @@ window.onload = function () {
                 return response.json();
             })
             .then(function (response) {
-                if (response.success == false) {
-                    throw response
-                } else{
+                if (response.success) {
                     return response
+                } else{
+                    throw response
                 }
             })
             .then(function (resp) {
