@@ -12,6 +12,54 @@ window.onload = function () {
         alfanumericRegex = lettersRegex.concat(numbersRegex),
         emailExpression = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
+    /**
+     *? Modal Elements & Functions
+     */
+    var modal = document.querySelector('#modal'),
+        aceptBtn = document.querySelector('#modal-acept-btn'),
+        cancelBtn = document.querySelector('#modal-cancel-btn'),
+        crossBtn = document.querySelector('#cross-btn'),
+        listContent = document.querySelector('#ul-final-msg'),
+        modalTitle = document.querySelector('#modal-title');
+
+    var closeBtns = [aceptBtn, cancelBtn, crossBtn];
+
+    function openModal(title, message) {
+        modalTitle.innerText = title;
+        if (!modal.classList.contains('active')) {
+            modal.classList.add('active');
+        }
+        if (typeof message == 'string') {
+            var newLi = document.createElement('li');
+            newLi.innerText = message;
+            listContent.appendChild(newLi);
+        } else {
+            message.forEach(function (element) {
+                var newLi = document.createElement('li');
+                newLi.innerText = element.msg;
+                listContent.appendChild(newLi);
+            });
+        }
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        listContent.innerHTML = '';
+        modalTitle.innerText = '';
+    }
+    closeBtns.forEach(function (element) {
+        element.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (modal.classList.contains('active') && (e.code == 'Escape' || e.code == 'Esc')) {
+            closeModal();
+        }
+        if (modal.classList.contains('active') && e.code == 'Enter') {
+            closeModal();
+            e.preventDefault();
+        }
+    });
 
     function focusInput(input) {
         input.classList.remove('invalid-input');
@@ -26,7 +74,7 @@ window.onload = function () {
         input.classList.add('invalid-input');
         if (input.nextElementSibling != null) {
             input.nextElementSibling.innerHTML = alertMessage;
-        } else{
+        } else {
             var errorP = document.createElement('p');
             errorP.classList.add('invalid-message', 'active');
             errorP.innerHTML = alertMessage;
@@ -91,27 +139,20 @@ window.onload = function () {
 
     sendBtn.addEventListener('click', function (e) {
         e.preventDefault();
-        var finalMessageAlert = '';
+        var finalMessageAlert = [];
         formElements.forEach(function (element) {
-            //* Empy validation & apply invalid condition
             lengthValid(element);
             if (element.classList.contains('invalid-input')) {
-                //* Type of message validation
-
-                finalMessageAlert = finalMessageAlert.concat(
-                    element.name,
-                    '\t',
-                    element.value.toString(),
-                    '\t',
-                    ' Invalid Input',
-                    '\n'
-                );
-            } else {
-                finalMessageAlert = finalMessageAlert.concat(element.name, '\t', element.value.toString(), '\n');
+                finalMessageAlert.push({
+                    msg: element.name + ': ' + element.value.toString() + ' is an invalid Input'
+                });
             }
         });
 
-        alert(finalMessageAlert);
-
+        if(finalMessageAlert.length == 0){
+            openModal('Request send successfully !!', 'We will contact you soon!')
+        } else{
+            openModal('Something in your request seems to be wrong:',finalMessageAlert);
+        }
     });
 }
