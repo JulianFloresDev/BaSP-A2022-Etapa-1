@@ -15,7 +15,54 @@ window.onload = function () {
         inputPassword = document.querySelector('#login-password-input'),
         loginBtn = document.querySelector('#login-btn'),
         loginInputElements = document.querySelectorAll('.register-inputs');
+    /**
+     *? Modal Elements & Functions
+     */
+    var modal = document.querySelector('#modal'),
+        aceptBtn = document.querySelector('#modal-acept-btn'),
+        cancelBtn = document.querySelector('#modal-cancel-btn'),
+        crossBtn = document.querySelector('#cross-btn'),
+        listContent = document.querySelector('#ul-final-msg');
+    modalTitle = document.querySelector('#modal-title');
+    var closeBtns = [aceptBtn, cancelBtn, crossBtn];
 
+    function openModal(title, message) {
+        modalTitle.innerText = title;
+        if (!modal.classList.contains('active')) {
+            modal.classList.add('active');
+        }
+        if (typeof message == 'string') {
+            var newLi = document.createElement('li');
+            newLi.innerText = message;
+            listContent.appendChild(newLi);
+        } else {
+            message.forEach(function (element) {
+                var newLi = document.createElement('li');
+                newLi.innerText = element.msg;
+                listContent.appendChild(newLi);
+            });
+        }
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        listContent.innerHTML = '';
+        modalTitle.innerText = '';
+    }
+
+    closeBtns.forEach(function (element) {
+        element.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (modal.classList.contains('active') && (e.code == 'Escape' || e.code == 'Esc')) {
+            closeModal();
+        }
+        if (modal.classList.contains('active') && e.code == 'Enter') {
+            closeModal();
+            e.preventDefault();
+        }
+    });
     /**
      *? Functions to manipulate styles:
      */
@@ -66,22 +113,21 @@ window.onload = function () {
         queryParams += email.name + '=' + email.value;
         queryParams += '&' + password.name + '=' + password.value;
         fetch('https://basp-m2022-api-rest-server.herokuapp.com/login' + queryParams)
-            .then(function(response){
+            .then(function (response) {
                 return response.json();
             })
             .then(function (response) {
                 if (response.success) {
                     return response
-                } else{
+                } else {
                     throw response
                 }
             })
             .then(function (resp) {
-                alert(resp.msg + ' Successfully!!');
+                openModal(resp.msg + ' Successfully!!', 'Wellcome back to Tackgenix we miss You!!')
             })
             .catch(function (error) {
-                alert(error.msg);
-                // alert('Request results on ' + error.msg + '\nPassword or email invalid.');
+                openModal('Ups Something was wrong!!', error.msg);
             });
     }
 
@@ -95,11 +141,16 @@ window.onload = function () {
 
         if (invalidInputs.length == 0) {
             fetchToDataBase(inputEmail, inputPassword);
-        } else{
-            alert('Email or password invalid!')
+        } else {
+            openModal('Ups Something was wrong!!', 'Email or password invalid!');
         }
     }
 
     loginBtn.addEventListener('click', formValidate);
+    document.addEventListener('keypress', function (e) {
+        if (e.code == 'Enter') {
+            formValidate();
+        }
+    });
 
 }

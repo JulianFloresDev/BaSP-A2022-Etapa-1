@@ -17,20 +17,20 @@ window.onload = function () {
         inputPassword = document.querySelector('#signup-input-password'),
         inputPasswordConfirm = document.querySelector('#signup-input-repeat-password');
 
-        //? Set input value
-        inputName.value = localStorage.getItem('name');
-        inputLastName.value = localStorage.getItem('lastName');
-        inputDNI.value = localStorage.getItem('dni');
-        inputBirthdate.value += localStorage.getItem('dob').substring(6, 10) + '-' + localStorage.getItem('dob').substring(0, 2) +
-            '-' + localStorage.getItem('dob').substring(3, 5);
-        inputPhone.value = localStorage.getItem('phone');
-        inputAddress.value = localStorage.getItem('address');
-        inputLocation.value = localStorage.getItem('city');
-        inputPostalCode.value = localStorage.getItem('zip');
-        inputEmail.value = localStorage.getItem('email');
-        inputEmailConfirm.value = localStorage.getItem('email');
-        inputPassword.value = localStorage.getItem('password');
-        inputPasswordConfirm.value = localStorage.getItem('password');
+    //? Set input value
+    inputName.value = localStorage.getItem('name');
+    inputLastName.value = localStorage.getItem('lastName');
+    inputDNI.value = localStorage.getItem('dni');
+    inputBirthdate.value += localStorage.getItem('dob').substring(6, 10) + '-' + localStorage.getItem('dob').substring(0, 2) +
+        '-' + localStorage.getItem('dob').substring(3, 5);
+    inputPhone.value = localStorage.getItem('phone');
+    inputAddress.value = localStorage.getItem('address');
+    inputLocation.value = localStorage.getItem('city');
+    inputPostalCode.value = localStorage.getItem('zip');
+    inputEmail.value = localStorage.getItem('email');
+    inputEmailConfirm.value = localStorage.getItem('email');
+    inputPassword.value = localStorage.getItem('password');
+    inputPasswordConfirm.value = localStorage.getItem('password');
 
     var loginBtn = document.querySelector('#login-btn');
     var errorAlertText = {
@@ -47,11 +47,11 @@ window.onload = function () {
             type: 'This field must contain only letters *',
             length: 'This field can contain from 4 to 20 letters *',
         },
-        DNI: {
+        dni: {
             type: 'This field must be a number *',
             length: 'This field must contain over 7 characters *',
         },
-        birthdate: {
+        dob: {
             justForFun: 'You must be in legal age. Come back soon *',
         },
         phone: {
@@ -63,11 +63,11 @@ window.onload = function () {
             length: 'This field must contain at least 5 characters *',
 
         },
-        location: {
+        city: {
             type: 'This field must to contain a valid Location *',
             length: 'This field must contain at least 4 length *',
         },
-        postal: {
+        zip: {
             type: 'This field must be numbers only *',
             length: 'Length between 4 and 5 characters only *',
         },
@@ -83,6 +83,55 @@ window.onload = function () {
     var lettersRegex = 'abcdefghijkmnlopqrstuvwxyzABCDEFGHIJKMNLOPQRSTUVWXYZ',
         numbersRegex = '0123456789',
         alfanumericRegex = lettersRegex.concat(numbersRegex);
+    /**
+     *? Modal Elements & Functions
+     */
+    var modal = document.querySelector('#modal'),
+        aceptBtn = document.querySelector('#modal-acept-btn'),
+        cancelBtn = document.querySelector('#modal-cancel-btn'),
+        crossBtn = document.querySelector('#cross-btn'),
+        listContent = document.querySelector('#ul-final-msg'),
+        modalTitle = document.querySelector('#modal-title');
+
+    var closeBtns = [aceptBtn, cancelBtn, crossBtn];
+
+    function openModal(title, message) {
+        modalTitle.innerText = title;
+        if (!modal.classList.contains('active')) {
+            modal.classList.add('active');
+        }
+        if (typeof message == 'string') {
+            var newLi = document.createElement('li');
+            newLi.innerText = message;
+            listContent.appendChild(newLi);
+        } else {
+            message.forEach(function (element) {
+                var newLi = document.createElement('li');
+                newLi.innerText = element.msg;
+                listContent.appendChild(newLi);
+            });
+        }
+    }
+
+    function closeModal() {
+        modal.classList.remove('active');
+        listContent.innerHTML = '';
+        modalTitle.innerText = '';
+    }
+    closeBtns.forEach(function (element) {
+        element.addEventListener('click', closeModal);
+    });
+
+    document.addEventListener('keydown', function (e) {
+        if (modal.classList.contains('active') && (e.code == 'Escape' || e.code == 'Esc')) {
+            closeModal();
+        }
+        if (modal.classList.contains('active') && e.code == 'Enter') {
+            closeModal();
+            e.preventDefault();
+        }
+    });
+
     /**
      *? Functions to manipulate styles:
      */
@@ -151,11 +200,11 @@ window.onload = function () {
     inputDNI.onblur = function () {
         var regex = numbersRegex;
         if (inputDNI.value.length > 0 && inputDNI.value.length <= 7) {
-            inputInvalid(inputDNI, inputDNI.nextElementSibling, errorAlertText.DNI.length);
+            inputInvalid(inputDNI, inputDNI.nextElementSibling, errorAlertText.dni.length);
         } else {
             for (i = 0; i < inputDNI.value.length; i++) {
                 if (regex.indexOf(inputDNI.value[i]) == -1) {
-                    inputInvalid(inputDNI, inputDNI.nextElementSibling, errorAlertText.DNI.type);
+                    inputInvalid(inputDNI, inputDNI.nextElementSibling, errorAlertText.dni.type);
                     break
                 }
             }
@@ -168,7 +217,7 @@ window.onload = function () {
         var actualDate = new Date();
         var actualYear = actualDate.getFullYear();
         if (actualYear - yearInput < 18) {
-            inputInvalid(inputBirthdate, inputBirthdate.nextElementSibling, errorAlertText.birthdate.justForFun)
+            inputInvalid(inputBirthdate, inputBirthdate.nextElementSibling, errorAlertText.dob.justForFun)
         }
         lengthValid(inputBirthdate);
     }
@@ -218,11 +267,11 @@ window.onload = function () {
         var regex = alfanumericRegex;
         var lettersCount = 0;
         if (inputLocation.value.length > 0 && inputLocation.value.length <= 3) {
-            inputInvalid(inputLocation, inputLocation.nextElementSibling, errorAlertText.location.length);
+            inputInvalid(inputLocation, inputLocation.nextElementSibling, errorAlertText.city.length);
         } else {
             for (i = 0; i < inputLocation.value.length; i++) {
                 if (regex.indexOf(inputLocation.value[i]) == -1 && inputLocation.value[i] != ' ') {
-                    inputInvalid(inputLocation, inputLocation.nextElementSibling, errorAlertText.location.type);
+                    inputInvalid(inputLocation, inputLocation.nextElementSibling, errorAlertText.city.type);
                     break
                 }
                 if (lettersRegex.indexOf(inputLocation.value[i]) == -1) {
@@ -230,7 +279,7 @@ window.onload = function () {
                 }
             }
             if (lettersCount === inputLocation.value.length) {
-                inputInvalid(inputLocation, inputLocation.nextElementSibling, errorAlertText.location.type);
+                inputInvalid(inputLocation, inputLocation.nextElementSibling, errorAlertText.city.type);
             }
 
         }
@@ -240,11 +289,11 @@ window.onload = function () {
     inputPostalCode.onblur = function () {
         var regex = numbersRegex;
         if (inputPostalCode.value.length > 0 && (inputPostalCode.value.length < 4 || inputPostalCode.value.length > 5)) {
-            inputInvalid(inputPostalCode, inputPostalCode.nextElementSibling, errorAlertText.postal.length);
+            inputInvalid(inputPostalCode, inputPostalCode.nextElementSibling, errorAlertText.zip.length);
         } else {
             for (i = 0; i < inputPostalCode.value.length; i++) {
                 if (regex.indexOf(inputPostalCode.value[i]) == -1) {
-                    inputInvalid(inputPostalCode, inputPostalCode.nextElementSibling, errorAlertText.postal.type);
+                    inputInvalid(inputPostalCode, inputPostalCode.nextElementSibling, errorAlertText.zip.type);
                     break
                 }
             }
@@ -266,6 +315,7 @@ window.onload = function () {
         }
         lengthValid(inputEmailConfirm);
     }
+    //! Password Valdiation
     inputPassword.onblur = function () {
         var regex = alfanumericRegex;
         spacesValid(inputPassword)
@@ -332,15 +382,10 @@ window.onload = function () {
                 localStorage.setItem('zip', resp.data.zip);
                 localStorage.setItem('email', resp.data.email);
                 localStorage.setItem('password', resp.data.password);
-                alert(resp.msg);
+                openModal(resp.msg + ' Successfully!!', 'Wellcome to Trackgenix!!')
             })
             .catch(function (error) {
-                var userErrorText = 'There must be a problem in the data you have provided. ' +
-                    'We recommend that you check the next fields:\n\n';
-                error.errors.forEach(function (element) {
-                    userErrorText += element.msg + '\n';
-                })
-                alert(userErrorText);
+                openModal('Ups Something was wrong!!', error.errors);
             });
     }
 
@@ -351,15 +396,23 @@ window.onload = function () {
             })) {
             fetchToDataBase(arrOfInputElements);
         } else {
-            var errorText = 'There must be a problem in the data you have provided. ' +
-                'We recommend that you check the next fields:\n\n';
+            var arrayOfErrors = [{
+                msg: 'There must be a problem in the data you have provided.\nWe recommend that you check the next fields:'
+            }, ];
             arrOfInputElements.forEach(function (element) {
                 if (element.classList.contains('invalid-input')) {
-                    errorText += element.name + '\t' + element.value + '\n';
+                    arrayOfErrors.push({
+                        msg: element.name.toUpperCase()
+                    });
                 }
-            });
-            alert(errorText);
+            })
+            openModal(arrayOfErrors);
         }
     }
     loginBtn.addEventListener('click', finalVerificationToSendData);
+    document.addEventListener('keypress', function (e) {
+        if (e.code == 'Enter') {
+            finalVerificationToSendData();
+        }
+    });
 }
