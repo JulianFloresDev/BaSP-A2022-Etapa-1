@@ -18,19 +18,21 @@ window.onload = function () {
         inputPasswordConfirm = document.querySelector('#signup-input-repeat-password');
 
     //? Set input value
-    inputName.value = localStorage.getItem('name');
-    inputLastName.value = localStorage.getItem('lastName');
-    inputDNI.value = localStorage.getItem('dni');
-    inputBirthdate.value += localStorage.getItem('dob').substring(6, 10) + '-' + localStorage.getItem('dob').substring(0, 2) +
-        '-' + localStorage.getItem('dob').substring(3, 5);
-    inputPhone.value = localStorage.getItem('phone');
-    inputAddress.value = localStorage.getItem('address');
-    inputLocation.value = localStorage.getItem('city');
-    inputPostalCode.value = localStorage.getItem('zip');
-    inputEmail.value = localStorage.getItem('email');
-    inputEmailConfirm.value = localStorage.getItem('email');
-    inputPassword.value = localStorage.getItem('password');
-    inputPasswordConfirm.value = localStorage.getItem('password');
+    if(window.localStorage.hasOwnProperty('logged')){
+        inputName.value = localStorage.getItem('name');
+        inputLastName.value = localStorage.getItem('lastName');
+        inputDNI.value = localStorage.getItem('dni');
+        inputBirthdate.value += localStorage.getItem('dob').substring(6, 10) + '-' + localStorage.getItem('dob').substring(0, 2) +
+            '-' + localStorage.getItem('dob').substring(3, 5);
+        inputPhone.value = localStorage.getItem('phone');
+        inputAddress.value = localStorage.getItem('address');
+        inputLocation.value = localStorage.getItem('city');
+        inputPostalCode.value = localStorage.getItem('zip');
+        inputEmail.value = localStorage.getItem('email');
+        inputEmailConfirm.value = localStorage.getItem('email');
+        inputPassword.value = localStorage.getItem('password');
+        inputPasswordConfirm.value = localStorage.getItem('password');
+    }
 
     var loginBtn = document.querySelector('#login-btn');
     var errorAlertText = {
@@ -371,6 +373,7 @@ window.onload = function () {
                 }
             })
             .then(function (resp) {
+                window.localStorage.setItem('logged', 'true');
                 localStorage.setItem('id', resp.data.id);
                 localStorage.setItem('name', resp.data.name);
                 localStorage.setItem('lastName', resp.data.lastName);
