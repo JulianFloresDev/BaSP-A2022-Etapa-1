@@ -409,13 +409,8 @@ window.onload = function () {
                     });
                 }
             })
-            openModal(arrayOfErrors);
+            openModal('Ups Something was wrong!!', arrayOfErrors);
         }
     }
     loginBtn.addEventListener('click', finalVerificationToSendData);
-    document.addEventListener('keypress', function (e) {
-        if (e.code == 'Enter') {
-            finalVerificationToSendData();
-        }
-    });
 }
